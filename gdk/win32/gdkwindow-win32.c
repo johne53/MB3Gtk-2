@@ -1504,7 +1504,7 @@ gdk_win32_window_move_resize (GdkWindow *window,
   GdkWindowImplWin32 *window_impl;
 
   window_impl = GDK_WINDOW_IMPL_WIN32 (private->impl);
-  window_impl->inhibit_configure = TRUE;
+// Commented out by JE - 29-07-12 !!!!  window_impl->inhibit_configure = TRUE;
 
   /* We ignore changes to the window being moved or resized by the 
      user, as we don't want to fight the user */
@@ -1528,10 +1528,10 @@ gdk_win32_window_move_resize (GdkWindow *window,
     }
 
  out:
-  window_impl->inhibit_configure = FALSE;
-
-  if (WINDOW_IS_TOPLEVEL (window))
-    _gdk_win32_emit_configure_event (window);
+// Commented out by JE - 29-07-12 !!!!  window_impl->inhibit_configure = FALSE;
+   ;
+// Commented out by JE - 29-07-12 !!!!  if (WINDOW_IS_TOPLEVEL (window))
+// Commented out by JE - 29-07-12 !!!!    _gdk_win32_emit_configure_event (window);
 }
 
 static gboolean
