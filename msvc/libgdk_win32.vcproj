@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="libgdk_win32"
-	ProjectGUID="{460AE75D-0D83-4d6e-9F60-FEE8D764934C}"
+	ProjectGUID="{460AE75D-0D83-4D6E-9F60-FEE8D764934C}"
 	RootNamespace="libgdk_win32"
 	>
 	<Platforms>
