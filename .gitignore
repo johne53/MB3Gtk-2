@@ -161,3 +161,12 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+/config.h.win32
+/config.h
+/gdk/gdkenumtypes.h
+/gdk/gdkenumtypes.c
+/gdk/gdkconfig.h
+/gdk/gdkalias.h
+/gdk/win32/rc/gdk.rc
+/msvc/gtk.vsprops

@@ -1,0 +1,71 @@
+#! e:/program files/perl/bin/perl.exe
+#  version info can be found in 'configure.ac'
+
+require "../local-paths.lib";
+
+$gtk_version = "2.24.18";
+$major = 2;
+$minor = 24;
+$micro = 18;
+$interface_age = 18;
+$binary_age = 2418;
+$current_minus_age = 0;
+$gettext_package = "gtk20";
+$gtk_icon_dir = "../gdk/win32/rc";
+$atk_api_version = "1.0";
+$pango_api_version = "1.0";
+$glib_api_version = "2.0";
+$gtk_api_version = "2.0";
+$gdk_pixbuf_api_version = "2.0";
+
+sub process_file
+{
+        my $outfilename = shift;
+	my $infilename = $outfilename . ".in";
+	
+	open (INPUT, "< $infilename") || exit 1;
+	open (OUTPUT, "> $outfilename") || exit 1;
+	
+	while (<INPUT>) {
+	    s/\@ATK_API_VERSION@/$atk_api_version/g;
+	    s/\@PANGO_API_VERSION@/$pango_api_version/g;
+	    s/\@GLIB_API_VERSION@/$glib_api_version/g;
+	    s/\@GTK_API_VERSION@/$gtk_api_version/g;
+	    s/\@GDK_PIXBUF_API_VERSION@/$gdk_pixbuf_api_version/g;
+	    s/\@GTK_VERSION@/$gtk_version/g;
+	    s/\@GTK_MAJOR_VERSION\@/$major/g;
+	    s/\@GTK_MINOR_VERSION\@/$minor/g;
+	    s/\@GTK_MICRO_VERSION\@/$micro/g;
+	    s/\@GTK_BINARY_VERSION\@/$binary_age/g;
+	    s/\@GTK_BINARY_AGE\@/$binary_age/g;
+	    s/\@GTK_INTERFACE_AGE\@/$interface_age/g;
+	    s/\@LT_CURRENT_MINUS_AGE@/$current_minus_age/g;
+	    s/\@GETTEXT_PACKAGE\@/$gettext_package/g;
+	    s/\@PERL@/$perl_path/g;
+	    s/\@GlibBuildRootFolder@/$glib_build_root_folder/g;
+	    s/\@GtkBuildRootFolder@/$gtk_build_root_folder/g;
+	    s/\@GdkPixbufBuildRootFolder@/$gdk_pixbuf_build_root_folder/g;
+	    s/\@GtkBuildProjectFolder@/$gtk_build_project_folder/g;
+	    s/\@GenericIncludeFolder@/$generic_include_folder/g;
+	    s/\@GenericLibraryFolder@/$generic_library_folder/g;
+	    s/\@GenericWin32LibraryFolder@/$generic_win32_library_folder/g;
+	    s/\@GenericWin32BinaryFolder@/$generic_win32_binary_folder/g;
+	    s/\@Debug32TestSuiteFolder@/$debug32_testsuite_folder/g;
+	    s/\@Release32TestSuiteFolder@/$release32_testsuite_folder/g;
+	    s/\@Debug32TargetFolder@/$debug32_target_folder/g;
+	    s/\@Release32TargetFolder@/$release32_target_folder/g;
+	    s/\@TargetSxSFolder@/$target_sxs_folder/g;
+	    s/\@srcdir@/$gtk_icon_dir/g;
+	    print OUTPUT;
+	}
+}
+
+process_file ("config.h.win32");
+process_file ("gtk/gtkversion.h");
+process_file ("demos/gtk-demo/geninclude.pl");
+
+my $command=join(' ',@ARGV);
+if ($command eq -buildall) {
+	process_file ("msvc/gtk.vsprops");
+	process_file ("gdk/win32/rc/gdk.rc");
+}
