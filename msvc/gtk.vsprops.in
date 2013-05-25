@@ -30,7 +30,7 @@
 	/>
 	<UserMacro
 		Name="DllSuffix"
-		Value="-@GTK_API_VERSION@"
+		Value="-@GTK_API_VERSION@-@LT_CURRENT_MINUS_AGE@"
 	/>
 	<UserMacro
 		Name="GlibDllSuffix"
@@ -46,7 +46,7 @@
 	/>
 	<UserMacro
 		Name="GdkPixbufDllSuffix"
-		Value="-2.0"
+		Value="-2.0-0"
 	/>
 	<UserMacro
 		Name="GlibBuildRootFolder"
