@@ -170,3 +170,8 @@ pip-log.txt
 /gdk/gdkalias.h
 /gdk/win32/rc/gdk.rc
 /msvc/gtk.vsprops
+/msvc/gdk.def
+/gdk/config.h
+/gdk/gdkaliasdef.c
+/gdk/gdkmarshalers.c
+/gdk/gdkmarshalers.h
