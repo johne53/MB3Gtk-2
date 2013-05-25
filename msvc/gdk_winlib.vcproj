@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="libgdk_win32"
+	Name="gdk_winlib"
 	ProjectGUID="{460AE75D-0D83-4D6E-9F60-FEE8D764934C}"
-	RootNamespace="libgdk_win32"
+	RootNamespace="gdk_winlib"
 	>
 	<Platforms>
 		<Platform
@@ -71,7 +71,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName)D.lib"
+				OutputFile="$(OutDir)\$(ProjectName)32D.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -149,7 +149,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName)SCLD.lib"
+				OutputFile="$(OutDir)\$(ProjectName)32SCLD.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -226,6 +226,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\$(ProjectName)32.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -302,7 +303,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName)RDC.lib"
+				OutputFile="$(OutDir)\$(ProjectName)32RDC.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
