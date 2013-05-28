@@ -1,6 +1,7 @@
 #ifndef __GTKINTL_H__
 #define __GTKINTL_H__
 
+#include "config.h" /* Added by JE - 28-05-2013 */
 #include <glib/gi18n-lib.h>
 
 #ifdef ENABLE_NLS
