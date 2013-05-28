@@ -1,3 +1,6 @@
+/* JE - 28-05-2013.  NOTE THAT THIS TEST FILE ISN'T CURRENT. IT'S ONLY BEING USED HERE
+        AS A PLACEHOLDER AND WE SHOULD EVENTUALLY REPLACE IT BY THE CORRECT TEST FILE(S).
+
 /* testgdk -- validation program for GDK
  * Copyright (C) 2000 Tor Lillqvist
  *
@@ -490,7 +493,8 @@ test_gc_function (GdkFunction function,
     case GDK_NAND:
       QTEST (newpixel == (((~oldpixel) | (~foreground)) & mask)); break;
     case GDK_NOR:
-      QTEST (newpixel == (~oldpixel & ~mask)); break;
+      QTEST (newpixel == (((~oldpixel) & (~foreground)) & mask)); break;
+// Changed by JE - !!!! was formerly. . .  */   QTEST (newpixel == (~oldpixel & ~mask)); break;
     case GDK_SET:
       QTEST (newpixel == ((~0) & mask)); break;
     default:
@@ -617,12 +621,14 @@ test_one_line_on_drawable (GdkDrawable *drawable,
 
       gdk_draw_line (drawable, gc, x1, y1, x2, y2);
       newimage = gdk_image_get (drawable, 0, 0, w, h);
+      for (x = x1-1; x < x2; x++)
+/* Changed by JE - 27-05-13. Was formerly. . .
       for (x = x1-1; x <= x2+1; x++)
-	for (y = y1-w_up-1; y <= y1+w_down+1; y++)
+*/	for (y = y1-w_up-1; y <= y1+w_down+1; y++)
 	  {
 	    oldpixel = gdk_image_get_pixel (oldimage, x, y);
 	    newpixel = gdk_image_get_pixel (newimage, x, y);
-	    if (x >= x1 && x < x2 && y >= y1-w_up && y <= y1+w_down)
+	    if (x >= x1 && x <= x2 && y >= y1-w_up && y <= y1+w_down)
 	      test_gc_function (gcvalues.function, oldpixel, newpixel,
 				gcvalues.foreground.pixel, mask);
 	    else
