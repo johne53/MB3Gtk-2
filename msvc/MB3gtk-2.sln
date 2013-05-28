@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk", "gdk.vcproj", "{CCDF0
 		{460AE75D-0D83-4D6E-9F60-FEE8D764934C} = {460AE75D-0D83-4D6E-9F60-FEE8D764934C}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_gdk", "test_gdk.vcproj", "{C802EC42-1DC7-407B-8520-250C82DDA66E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug 32 with Secure SCL|Win32 = Debug 32 with Secure SCL|Win32
@@ -32,6 +34,14 @@ Global
 		{CCDF059D-1DD0-4C2B-ADA8-4CF4BA0D3420}.Release 32 with Debugging Capability|Win32.Build.0 = Release 32 with Debugging Capability|Win32
 		{CCDF059D-1DD0-4C2B-ADA8-4CF4BA0D3420}.Release 32|Win32.ActiveCfg = Release 32|Win32
 		{CCDF059D-1DD0-4C2B-ADA8-4CF4BA0D3420}.Release 32|Win32.Build.0 = Release 32|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Debug 32 with Secure SCL|Win32.ActiveCfg = Debug 32 with Secure SCL|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Debug 32 with Secure SCL|Win32.Build.0 = Debug 32 with Secure SCL|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Debug 32|Win32.ActiveCfg = Debug 32|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Debug 32|Win32.Build.0 = Debug 32|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Release 32 with Debugging Capability|Win32.ActiveCfg = Release 32 with Debugging Capability|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Release 32 with Debugging Capability|Win32.Build.0 = Release 32 with Debugging Capability|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Release 32|Win32.ActiveCfg = Release 32|Win32
+		{C802EC42-1DC7-407B-8520-250C82DDA66E}.Release 32|Win32.Build.0 = Release 32|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
