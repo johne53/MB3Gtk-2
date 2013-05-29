@@ -17,6 +17,7 @@ $pango_api_version = "1.0";
 $glib_api_version = "2.0";
 $gtk_api_version = "2.0";
 $gdk_pixbuf_api_version = "2.0";
+$gtk_binary_version = "v2.24"; # Used to locate various modules and '.rc' files. Change this only when absolutely necessary !
 
 sub process_file
 {
@@ -36,7 +37,7 @@ sub process_file
 	    s/\@GTK_MAJOR_VERSION\@/$major/g;
 	    s/\@GTK_MINOR_VERSION\@/$minor/g;
 	    s/\@GTK_MICRO_VERSION\@/$micro/g;
-	    s/\@GTK_BINARY_VERSION\@/$binary_age/g;
+	    s/\@GTK_BINARY_VERSION\@/$gtk_binary_version/g;
 	    s/\@GTK_BINARY_AGE\@/$binary_age/g;
 	    s/\@GTK_INTERFACE_AGE\@/$interface_age/g;
 	    s/\@LT_CURRENT_MINUS_AGE@/$current_minus_age/g;

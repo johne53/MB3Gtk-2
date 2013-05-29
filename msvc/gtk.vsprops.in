@@ -33,6 +33,10 @@
 		Value="-@GTK_API_VERSION@-@LT_CURRENT_MINUS_AGE@"
 	/>
 	<UserMacro
+		Name="AtkDllSuffix"
+		Value="-2.0-0"
+	/>
+	<UserMacro
 		Name="GlibDllSuffix"
 		Value="-2.0-0"
 	/>

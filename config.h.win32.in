@@ -14,8 +14,10 @@
 /* Define if debugging is enabled */
 #define GTK_COMPILED_WITH_DEBUGGING "yes"
 
-/* Define the location where the catalogs will be installed */
-#define GTK_LOCALEDIR "NONE/share/locale"
+/* Define the location where the catalogs will be installed */ /* Changed by JE - 29-05-2013 */
+#ifndef GTK_LOCALEDIR /* Added by JE - 29-05-2013 */
+#define GTK_LOCALEDIR "NONE/Mixbus/local/share/locale"
+#endif
 
 /* Define to 1 if you have the `bind_textdomain_codeset' function. */
 #define HAVE_BIND_TEXTDOMAIN_CODESET 1
@@ -69,12 +71,12 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #ifndef _MSC_VER
 #define HAVE_INTTYPES_H 1
-#else
-/* #undef HAVE_INTTYPES_H */
+#else /* Defined by JE - 17-10-2010 */
+#define HAVE_INTTYPES_H 1
 #endif
 
-/* Define to 1 if ipc.h is available */
-/* #undef HAVE_IPC_H */
+/* Define to 1 if ipc.h is available */ /* Defined by JE - 17-10-2010 (not sure if this is correct !! */
+#define HAVE_IPC_H 1
 
 /* Define if your <locale.h> file defines LC_MESSAGES. */
 /* #undef HAVE_LC_MESSAGES */
@@ -94,10 +96,10 @@
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
 
-/* Define to 1 if you have the `mkstemp' function. */
+/* Define to 1 if you have the `mkstemp' function. */ /* JE - 17-10-2010. This could be obtained from glibc */
 /* #undef HAVE_MKSTEMP */
 
-/* Define to 1 if you have a working `mmap' system call. */
+/* Define to 1 if you have a working `mmap' system call. */ /* JE - 17-10-2010. This could be obtained from glibc */
 /* #undef HAVE_MMAP */
 
 /* Define to 1 if libpapi available */
@@ -113,7 +115,7 @@
 /* #undef HAVE_RANDR */
 
 /* Define to 1 if shm.h is available */
-/* #undef HAVE_SHM_H */
+/* #undef HAVE_SHM_H */ /* JE - 17-10-2010. This could be obtained from glibc */
 
 /* Define to 1 if sigsetjmp is available */
 /* #undef HAVE_SIGSETJMP */
@@ -130,15 +132,15 @@
 #else
 #if (_MSC_VER >= 1600) /* VS 2010 ships with stdint.h */
 #define HAVE_STDINT_H 1
-#else
-/* #undef HAVE_STDINT_H */
+#else /* Defined by JE - 17-10-2010 */
+#define HAVE_STDINT_H 1
 #endif
 #endif
 
 /* Define to 1 if you have the <stdlib.h> header file. */
 #define HAVE_STDLIB_H 1
 
-/* Define to 1 if you have the <strings.h> header file. */
+/* Define to 1 if you have the <strings.h> header file. */ /* JE - 17-10-2010. This is available from glibc */
 #define HAVE_STRINGS_H 1
 
 /* Define to 1 if you have the <string.h> header file. */
@@ -159,7 +161,7 @@
 /* Define to 1 if you have the <sys/time.h> header file. */
 #ifndef _MSC_VER
 #define HAVE_SYS_TIME_H 1
-#else /* _MSC_VER */
+#else /* _MSC_VER */ /* JE - 17-10-2010. This could be obtained from glibc */
 /* #undef HAVE_SYS_TIME_H */
 #endif
 
@@ -316,3 +318,48 @@
 
 /* Define to `int' if <sys/types.h> doesn't define. */
 #define uid_t int
+
+/* These added by JE - 21-10-2010 */
+#if HAVE_SYS_STAT_H
+#include <sys/stat.h>
+
+#ifndef S_IRUSR
+#define S_IRUSR _S_IREAD
+#endif
+
+#ifndef S_IWUSR
+#define S_IWUSR _S_IWRITE
+#endif
+
+#ifndef S_IXUSR
+#define S_IXUSR _S_IEXEC
+#endif
+#endif /* HAVE_SYS_STAT_H */
+
+#ifndef G_LOG_DOMAIN
+#define G_LOG_DOMAIN "Gtk"
+#endif
+
+#ifndef GTK_HOST
+#define GTK_HOST "win32"
+#endif
+
+#ifndef GTK_PREFIX
+#define GTK_PREFIX "Not set (placeholder)"
+#endif
+
+#ifndef GTK_LIBDIR
+#define GTK_LIBDIR "Not set (placeholder)"
+#endif
+
+#ifndef GTK_BINARY_VERSION
+#define GTK_BINARY_VERSION "2.24.0"
+#endif
+
+#ifndef GTK_PRINT_BACKENDS
+#define GTK_PRINT_BACKENDS "file,lpr"
+#endif
+
+#ifndef GTK_PRINT_PREVIEW_COMMAND
+#define GTK_PRINT_PREVIEW_COMMAND "evince --unlink-tempfile --preview %f"
+#endif

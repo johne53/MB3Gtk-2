@@ -27,7 +27,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Use existing Aliasdefs and Marshalers"
-				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;"
+				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -46,7 +46,7 @@
 				AdditionalOptions="/FI$(TargetSxsFolder)\targetsxs.h"
 				Optimization="0"
 				AdditionalIncludeDirectories=".;&quot;$(GenericIncludefolder)&quot;;&quot;$(GenericIncludefolder)\cairo&quot;;&quot;$(GenericIncludefolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include&quot;;..;&quot;$(GtkBuildRootFolder)\gdk&quot;;&quot;$(GtkBuildRootFolder)\gdk-pixbuf&quot;;&quot;$(GtkBuildRootFolder)\gdk\win32&quot;;&quot;$(GenericIncludefolder)\gtk-$(GtkApiVersion)&quot;"
-				PreprocessorDefinitions="_SECURE_SCL=0;_HAS_ITERATOR_DEBUGGING=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;GTK_PRINT_PREVIEW_COMMAND=\&quot;evince --unlink-tempfile --preview %f\&quot;;WIN32;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
+				PreprocessorDefinitions="_SECURE_SCL=0;_HAS_ITERATOR_DEBUGGING=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -123,7 +123,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Use existing Aliasdefs and Marshalers"
-				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;"
+				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -142,7 +142,7 @@
 				AdditionalOptions="/FI$(TargetSxsFolder)\targetsxs.h"
 				Optimization="0"
 				AdditionalIncludeDirectories=".;&quot;$(GenericIncludefolder)&quot;;&quot;$(GenericIncludefolder)\cairo&quot;;&quot;$(GenericIncludefolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include&quot;;..;&quot;$(GtkBuildRootFolder)\gdk&quot;;&quot;$(GtkBuildRootFolder)\gdk-pixbuf&quot;;&quot;$(GtkBuildRootFolder)\gdk\win32&quot;;&quot;$(GenericIncludefolder)\gtk-$(GtkApiVersion)&quot;"
-				PreprocessorDefinitions="_SECURE_SCL=1;_HAS_ITERATOR_DEBUGGING=1;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;GTK_PRINT_PREVIEW_COMMAND=\&quot;evince --unlink-tempfile --preview %f\&quot;;WIN32;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
+				PreprocessorDefinitions="_SECURE_SCL=1;_HAS_ITERATOR_DEBUGGING=1;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -220,7 +220,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Use existing Aliasdefs and Marshalers"
-				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;"
+				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -240,7 +240,7 @@
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories=".;&quot;$(GenericIncludefolder)&quot;;&quot;$(GenericIncludefolder)\cairo&quot;;&quot;$(GenericIncludefolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include&quot;;..;&quot;$(GtkBuildRootFolder)\gdk&quot;;&quot;$(GtkBuildRootFolder)\gdk-pixbuf&quot;;&quot;$(GtkBuildRootFolder)\gdk\win32&quot;;&quot;$(GenericIncludefolder)\gtk-$(GtkApiVersion)&quot;"
-				PreprocessorDefinitions="_SECURE_SCL=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;GTK_PRINT_PREVIEW_COMMAND=\&quot;evince --unlink-tempfile --preview %f\&quot;;WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
+				PreprocessorDefinitions="_SECURE_SCL=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
 				StringPooling="false"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="false"
@@ -313,7 +313,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Generate Aliasdefs and Marshalers"
-				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;perl gdk/makegdkalias.pl -def &lt; &quot;gdk/gdk.symbols&quot; &gt; &quot;gdk/gdkaliasdef.c&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --header &gt; &quot;gdk\gdkmarshalers.h&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --body &gt; &quot;gdk\gdkmarshalers.c&quot;&#x0D;&#x0A;"
+				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;perl gdk/makegdkalias.pl -def &lt; &quot;gdk/gdk.symbols&quot; &gt; &quot;gdk/gdkaliasdef.c&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --header &gt; &quot;gdk\gdkmarshalers.h&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --body &gt; &quot;gdk\gdkmarshalers.c&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -332,7 +332,7 @@
 				AdditionalOptions="/FI$(TargetSxsFolder)\targetsxs.h"
 				Optimization="0"
 				AdditionalIncludeDirectories=".;&quot;$(GenericIncludefolder)&quot;;&quot;$(GenericIncludefolder)\cairo&quot;;&quot;$(GenericIncludefolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include&quot;;..;&quot;$(GtkBuildRootFolder)\gdk&quot;;&quot;$(GtkBuildRootFolder)\gdk-pixbuf&quot;;&quot;$(GtkBuildRootFolder)\gdk\win32&quot;;&quot;$(GenericIncludefolder)\gtk-$(GtkApiVersion)&quot;"
-				PreprocessorDefinitions="_SECURE_SCL=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;GTK_PRINT_PREVIEW_COMMAND=\&quot;evince --unlink-tempfile --preview %f\&quot;;WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
+				PreprocessorDefinitions="_SECURE_SCL=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
 				StringPooling="false"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="false"

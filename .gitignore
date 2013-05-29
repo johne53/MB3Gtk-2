@@ -175,3 +175,18 @@ pip-log.txt
 /gdk/gdkaliasdef.c
 /gdk/gdkmarshalers.c
 /gdk/gdkmarshalers.h
+/gtk/config.h
+/msvc/gtk.def
+/msvc/Release 32 with Debugging Capability/lib
+/msvc/Release 32/lib
+/msvc/Debug 32/lib
+/msvc/Debug 32 with Secure SCL/lib
+/gtk/gtkalias.h
+/gtk/gtkaliasdef.c
+/gtk/gtkmarshal.c
+/gtk/gtkmarshal.h
+/gtk/gtkmarshalers.c
+/gtk/gtkmarshalers.h
+/gtk/gtktypebuiltins.c
+/gtk/gtktypebuiltins.h
+/gtk/gtkversion.h
