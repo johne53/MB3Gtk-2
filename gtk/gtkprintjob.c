@@ -482,8 +482,10 @@ gtk_print_job_get_surface (GtkPrintJob  *job,
       return NULL;
     }
 
+#ifdef HAVE_FCHMOD // Guard added by JE - 22-10-10
   fchmod (fd, S_IRUSR | S_IWUSR);
-  
+#endif
+
 #ifdef G_ENABLE_DEBUG 
   /* If we are debugging printing don't delete the tmp files */
   if (!(gtk_debug_flags & GTK_DEBUG_PRINTING))

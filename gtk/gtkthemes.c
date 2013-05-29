@@ -60,11 +60,18 @@ static GHashTable *engine_hash = NULL;
 static gboolean
 gtk_theme_engine_load (GTypeModule *module)
 {
+  const gchar *env_path; /* Added by JE - 17-02-2012 */
+  gchar *engine_path = 0;
   GtkThemeEngine *engine = GTK_THEME_ENGINE (module);
   
-  gchar *engine_path;
-      
-  engine_path = gtk_rc_find_module_in_path (engine->name);
+  /* This function changed by JE - 17-02-2012 to allow us
+     to find the engine path from an environment variable */
+  env_path = g_getenv("GTK_THEME_ENGINE_FILE");
+  if (env_path)
+	engine_path = g_strdup(env_path);
+
+  if (!engine_path)
+    engine_path = gtk_rc_find_module_in_path (engine->name);
   
   if (!engine_path)
     {

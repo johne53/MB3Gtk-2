@@ -2525,7 +2525,9 @@ cups_request_ppd (GtkPrinter *printer)
     }
     
   data->http = http;
+#ifdef HAVE_FCHMOD // Guard added by JE - 22-10-10
   fchmod (fd, S_IRUSR | S_IWUSR);
+#endif
   data->ppd_io = g_io_channel_unix_new (fd);
   g_io_channel_set_encoding (data->ppd_io, NULL, NULL);
   g_io_channel_set_close_on_unref (data->ppd_io, TRUE);
