@@ -9,8 +9,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk", "gdk.vcproj", "{CCDF0
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_gdk", "test_gdk.vcproj", "{C802EC42-1DC7-407B-8520-250C82DDA66E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E2B4CA0D-BFFF-4132-B36B-38955CD4C3BC} = {E2B4CA0D-BFFF-4132-B36B-38955CD4C3BC}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtk", "gtk.vcproj", "{E2B4CA0D-BFFF-4132-B36B-38955CD4C3BC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CCDF059D-1DD0-4C2B-ADA8-4CF4BA0D3420} = {CCDF059D-1DD0-4C2B-ADA8-4CF4BA0D3420}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
