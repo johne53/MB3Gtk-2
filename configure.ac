@@ -13,8 +13,8 @@ AC_PREREQ(2.62)
 
 m4_define([gtk_major_version], [2])
 m4_define([gtk_minor_version], [24])
-m4_define([gtk_micro_version], [18])
-m4_define([gtk_interface_age], [18])
+m4_define([gtk_micro_version], [19])
+m4_define([gtk_interface_age], [19])
 m4_define([gtk_binary_age],
           [m4_eval(100 * gtk_minor_version + gtk_micro_version)])
 m4_define([gtk_version],
@@ -822,6 +822,9 @@ all_immodules="am-et,cedilla,cyrillic-translit"
 if test "$gdktarget" = "win32"; then
    all_immodules="${all_immodules},ime"
 fi
+if test "$gdktarget" = "quartz"; then
+   all_immodules="${all_immodules},quartz"
+fi
 all_immodules="${all_immodules},inuktitut,ipa,multipress,thai,ti-er,ti-et,viqr"
 if test "$gdktarget" = "x11"; then
    all_immodules="${all_immodules},xim"
@@ -865,6 +868,7 @@ AM_CONDITIONAL(INCLUDE_IM_IME, [test x"$INCLUDE_ime" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_INUKTITUT, [test x"$INCLUDE_inuktitut" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_IPA, [test x"$INCLUDE_ipa" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_MULTIPRESS, [test x"$INCLUDE_multipress" = xyes])
+AM_CONDITIONAL(INCLUDE_IM_QUARTZ, [test x"$INCLUDE_quartz" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_THAI, [test x"$INCLUDE_thai" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_TI_ER, [test x"$INCLUDE_ti_er" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_TI_ET, [test x"$INCLUDE_ti_et" = xyes])
@@ -1681,6 +1685,8 @@ elif test "x$gdktarget" = "xwin32" ; then
 #define GDK_WINDOWING_WIN32'
 elif test "x$gdktarget" = "xquartz" ; then
   gdk_windowing='
+#define GDK_NATIVE_WINDOW_POINTER
+
 #define GDK_WINDOWING_QUARTZ'
 elif test "x$gdktarget" = "xdirectfb" ; then
   gdk_windowing='
