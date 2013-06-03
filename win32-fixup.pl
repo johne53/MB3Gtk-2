@@ -69,4 +69,5 @@ my $command=join(' ',@ARGV);
 if ($command eq -buildall) {
 	process_file ("msvc/gtk.vsprops");
 	process_file ("gdk/win32/rc/gdk.rc");
+	process_file ("gtk/gtk-win32.rc");
 }
