@@ -45,7 +45,7 @@
 				AdditionalOptions="/FI$(TargetSxsFolder)\targetsxs.h"
 				Optimization="0"
 				AdditionalIncludeDirectories="..;..\..;&quot;$(GenericLibraryFolder)\glib-2.0\include&quot;;&quot;$(GenericIncludeFolder)\cairo&quot;;&quot;$(GenericIncludeFolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gdk&quot;;&quot;$(GenericIncludeFolder)\gtk-$(GtkApiVersion)&quot;;."
-				PreprocessorDefinitions="_SECURE_SCL=0;_HAS_ITERATOR_DEBUGGING=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;"
+				PreprocessorDefinitions="GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -67,87 +67,6 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="$(DllPrefix)glib$(DllSuffix)D.lib $(DllPrefix)gobject$(DllSuffix)D.lib $(DllPrefix)gdk32$(DllSuffix)D.lib"
 				OutputFile="$(OutDir)\$(ProjectName)D.exe"
-				GenerateDebugInformation="true"
-				SubSystem="1"
-				TargetMachine="1"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-				UseFAT32Workaround="true"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="copy /Y &quot;$(OutDir)\$(TargetName).exe&quot; &quot;$(Debug32TestSuiteFolder)\$(TargetName).exe&quot;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug 32 with Secure SCL|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)\bin"
-			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)\obj\$(ProjectName)"
-			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops;.\gtk.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalOptions="/FI$(TargetSxsFolder)\targetsxs.h"
-				Optimization="0"
-				AdditionalIncludeDirectories="..;..\..;&quot;$(GenericLibraryFolder)\glib-2.0\include&quot;;&quot;$(GenericIncludeFolder)\cairo&quot;;&quot;$(GenericIncludeFolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gdk&quot;;&quot;$(GenericIncludeFolder)\gtk-$(GtkApiVersion)&quot;;."
-				PreprocessorDefinitions="_SECURE_SCL=1;_HAS_ITERATOR_DEBUGGING=1;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;"
-				MinimalRebuild="true"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
-				UsePrecompiledHeader="0"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-				CompileAs="1"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="$(DllPrefix)glib$(DllSuffix)SCLD.lib $(DllPrefix)gobject$(DllSuffix)SCLD.lib $(DllPrefix)gdk32$(DllSuffix)SCLD.lib"
-				OutputFile="$(OutDir)\$(ProjectName)SCLD.exe"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"

@@ -46,7 +46,7 @@
 				AdditionalOptions="/FI$(TargetSxsFolder)\targetsxs.h"
 				Optimization="0"
 				AdditionalIncludeDirectories=".;&quot;$(GenericIncludefolder)&quot;;&quot;$(GenericIncludefolder)\cairo&quot;;..;&quot;$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include&quot;;&quot;$(GenericIncludefolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GtkBuildRootFolder)\gdk&quot;;&quot;$(GtkBuildRootFolder)\gdk\win32&quot;;&quot;$(GdkPixbufBuildRootFolder)&quot;"
-				PreprocessorDefinitions="_SECURE_SCL=0;_HAS_ITERATOR_DEBUGGING=0;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
+				PreprocessorDefinitions="GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -72,84 +72,6 @@
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="$(OutDir)\$(ProjectName)32D.lib"
-				SuppressStartupBanner="true"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-				SuppressStartupBanner="true"
-				OutputFile=".\Debug\libgdk_win32/libgdk_win32.bsc"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug 32 with Secure SCL|Win32"
-			OutputDirectory="$(ProjectDir)\$(ConfigurationName)\lib"
-			IntermediateDirectory="$(ProjectDir)\$(ConfigurationName)\obj\$(ProjectName)"
-			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops;.\gtk.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-				Description="Prepare enumtypes and configuration file(s)"
-				CommandLine="copy /Y &quot;..\gdk\gdkenumtypes.h&quot; &quot;$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gdk\gdkenumtypes.h&quot;&#x0D;&#x0A;cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;config.h&quot;&#x0D;&#x0A;copy /Y &quot;gdk\gdkconfig.h.win32&quot; &quot;gdk\gdkconfig.h&quot;&#x0D;&#x0A;"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalOptions="/FI$(TargetSxsFolder)\targetsxs.h"
-				Optimization="0"
-				AdditionalIncludeDirectories=".;&quot;$(GenericIncludefolder)&quot;;&quot;$(GenericIncludefolder)\cairo&quot;;..;&quot;$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include&quot;;&quot;$(GenericIncludefolder)\pango-$(PangoApiVersion)&quot;;&quot;$(GtkBuildRootFolder)\gdk&quot;;&quot;$(GtkBuildRootFolder)\gdk\win32&quot;;&quot;$(GdkPixbufBuildRootFolder)&quot;"
-				PreprocessorDefinitions="_SECURE_SCL=1;_HAS_ITERATOR_DEBUGGING=1;GTK_HOST=\&quot;win32\&quot;;GTK_PREFIX=\&quot;Not set (placeholder)\&quot;;GTK_LIBDIR=\&quot;Not set (placeholder)\&quot;;GTK_PRINT_BACKENDS=\&quot;file,lpr\&quot;;WIN32;DEBUG;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN=\&quot;Gdk\&quot;;GDK_COMPILATION;INSIDE_GDK_WIN32"
-				MinimalRebuild="true"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
-				StructMemberAlignment="0"
-				RuntimeTypeInfo="false"
-				PrecompiledHeaderFile=""
-				WarningLevel="3"
-				SuppressStartupBanner="true"
-				DebugInformationFormat="3"
-				CompileAs="1"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG"
-				Culture="2057"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName)32SCLD.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
