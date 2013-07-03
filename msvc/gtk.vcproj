@@ -73,7 +73,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comctl32.lib intlD.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix)D.lib $(DllPrefix)gobject$(GlibDllSuffix)D.lib $(DllPrefix)gmodule$(GlibDllSuffix)D.lib $(DllPrefix)glib$(GlibDllSuffix)D.lib $(DllPrefix)gio$(GlibDllSuffix)D.lib $(DllPrefix)gdk32$(GlibDllSuffix)D.lib $(DllPrefix)atk$(AtkDllSuffix)D.lib $(DllPrefix)cairo$(CairoDllSuffix)D.lib $(DllPrefix)pango$(PangoDllSuffix)D.lib $(DllPrefix)pangocairo$(PangoDllSuffix)D.lib"
+				AdditionalDependencies="comctl32.lib intlD.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix)D.lib $(DllPrefix)gobject32$(GlibDllSuffix)D.lib $(DllPrefix)gmodule32$(GlibDllSuffix)D.lib $(DllPrefix)glib32$(GlibDllSuffix)D.lib $(DllPrefix)gio32$(GlibDllSuffix)D.lib $(DllPrefix)gdk32$(GlibDllSuffix)D.lib $(DllPrefix)atk$(AtkDllSuffix)D.lib $(DllPrefix)cairo$(CairoDllSuffix)D.lib $(DllPrefix)pango$(PangoDllSuffix)D.lib $(DllPrefix)pangocairo$(PangoDllSuffix)D.lib"
 				OutputFile="$(OutDir)\$(DllPrefix)$(ProjectName)32$(DllSuffix)D.dll"
 				IgnoreDefaultLibraryNames="msvcrt.lib"
 				ModuleDefinitionFile="$(ProjectDir)\$(ProjectName).def"
@@ -167,7 +167,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comctl32.lib intl.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix).lib $(DllPrefix)gobject$(GlibDllSuffix).lib $(DllPrefix)gmodule$(GlibDllSuffix).lib $(DllPrefix)glib$(GlibDllSuffix).lib $(DllPrefix)gio$(GlibDllSuffix).lib $(DllPrefix)gdk32$(GlibDllSuffix).lib $(DllPrefix)atk$(AtkDllSuffix).lib $(DllPrefix)cairo$(CairoDllSuffix).lib $(DllPrefix)pango$(PangoDllSuffix).lib $(DllPrefix)pangocairo$(PangoDllSuffix).lib"
+				AdditionalDependencies="comctl32.lib intl.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix).lib $(DllPrefix)gobject32$(GlibDllSuffix).lib $(DllPrefix)gmodule32$(GlibDllSuffix).lib $(DllPrefix)glib32$(GlibDllSuffix).lib $(DllPrefix)gio32$(GlibDllSuffix).lib $(DllPrefix)gdk32$(GlibDllSuffix).lib $(DllPrefix)atk$(AtkDllSuffix).lib $(DllPrefix)cairo$(CairoDllSuffix).lib $(DllPrefix)pango$(PangoDllSuffix).lib $(DllPrefix)pangocairo$(PangoDllSuffix).lib"
 				OutputFile="$(OutDir)\$(DllPrefix)$(ProjectName)32$(DllSuffix).dll"
 				ModuleDefinitionFile="$(ProjectDir)\$(ProjectName).def"
 				SubSystem="2"
@@ -259,7 +259,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comctl32.lib intlRDC.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix)RDC.lib $(DllPrefix)gobject$(GlibDllSuffix)RDC.lib $(DllPrefix)gmodule$(GlibDllSuffix)RDC.lib $(DllPrefix)glib$(GlibDllSuffix)RDC.lib $(DllPrefix)gio$(GlibDllSuffix)RDC.lib $(DllPrefix)gdk32$(GlibDllSuffix)RDC.lib $(DllPrefix)atk$(AtkDllSuffix)RDC.lib $(DllPrefix)cairo$(CairoDllSuffix)RDC.lib $(DllPrefix)pango$(PangoDllSuffix)RDC.lib $(DllPrefix)pangocairo$(PangoDllSuffix)RDC.lib"
+				AdditionalDependencies="comctl32.lib intlRDC.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix)RDC.lib $(DllPrefix)gobject32$(GlibDllSuffix)RDC.lib $(DllPrefix)gmodule32$(GlibDllSuffix)RDC.lib $(DllPrefix)glib32$(GlibDllSuffix)RDC.lib $(DllPrefix)gio32$(GlibDllSuffix)RDC.lib $(DllPrefix)gdk32$(GlibDllSuffix)RDC.lib $(DllPrefix)atk$(AtkDllSuffix)RDC.lib $(DllPrefix)cairo$(CairoDllSuffix)RDC.lib $(DllPrefix)pango$(PangoDllSuffix)RDC.lib $(DllPrefix)pangocairo$(PangoDllSuffix)RDC.lib"
 				OutputFile="$(OutDir)\$(DllPrefix)$(ProjectName)32$(DllSuffix)RDC.dll"
 				ModuleDefinitionFile="$(ProjectDir)\$(ProjectName).def"
 				GenerateDebugInformation="true"
