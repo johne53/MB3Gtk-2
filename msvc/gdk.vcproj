@@ -73,7 +73,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Imm32.lib intlD.lib gdk_winlib32D.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix)D.lib $(DllPrefix)gobject32$(GlibDllSuffix)D.lib $(DllPrefix)gmodule32$(GlibDllSuffix)D.lib $(DllPrefix)glib32$(GlibDllSuffix)D.lib $(DllPrefix)gio32$(GlibDllSuffix)D.lib $(DllPrefix)cairo32$(CairoDllSuffix)D.lib $(DllPrefix)pango32$(PangoDllSuffix)D.lib $(DllPrefix)pangocairo32$(PangoDllSuffix)D.lib"
+				AdditionalDependencies="Imm32.lib intlD.lib gdk_winlib32D.lib $(DllPrefix)gdk-pixbuf32$(GdkPixbufDllSuffix)D.lib $(DllPrefix)gobject32$(GlibDllSuffix)D.lib $(DllPrefix)gmodule32$(GlibDllSuffix)D.lib $(DllPrefix)glib32$(GlibDllSuffix)D.lib $(DllPrefix)gio32$(GlibDllSuffix)D.lib $(DllPrefix)cairo32$(CairoDllSuffix)D.lib $(DllPrefix)pango32$(PangoDllSuffix)D.lib $(DllPrefix)pangocairo32$(PangoDllSuffix)D.lib"
 				OutputFile="$(OutDir)\$(DllPrefix)$(ProjectName)32$(DllSuffix)D.dll"
 				AdditionalLibraryDirectories="&quot;$(ProjectDir)$(ConfigurationName)\lib&quot;;&quot;$(GenericWin32LibraryFolder)&quot;"
 				IgnoreDefaultLibraryNames="msvcrt.lib"
@@ -168,7 +168,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Imm32.lib intl.lib gdk_winlib32.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix).lib $(DllPrefix)gobject32$(GlibDllSuffix).lib $(DllPrefix)gmodule32$(GlibDllSuffix).lib $(DllPrefix)glib32$(GlibDllSuffix).lib $(DllPrefix)gio32$(GlibDllSuffix).lib $(DllPrefix)cairo32$(CairoDllSuffix).lib $(DllPrefix)pango32$(PangoDllSuffix).lib $(DllPrefix)pangocairo32$(PangoDllSuffix).lib"
+				AdditionalDependencies="Imm32.lib intl.lib gdk_winlib32.lib $(DllPrefix)gdk-pixbuf32$(GdkPixbufDllSuffix).lib $(DllPrefix)gobject32$(GlibDllSuffix).lib $(DllPrefix)gmodule32$(GlibDllSuffix).lib $(DllPrefix)glib32$(GlibDllSuffix).lib $(DllPrefix)gio32$(GlibDllSuffix).lib $(DllPrefix)cairo32$(CairoDllSuffix).lib $(DllPrefix)pango32$(PangoDllSuffix).lib $(DllPrefix)pangocairo32$(PangoDllSuffix).lib"
 				OutputFile="$(OutDir)\$(DllPrefix)$(ProjectName)32$(DllSuffix).dll"
 				AdditionalLibraryDirectories="&quot;$(ProjectDir)$(ConfigurationName)\lib&quot;;&quot;$(GenericWin32LibraryFolder)&quot;"
 				ModuleDefinitionFile="$(ProjectDir)\$(ProjectName).def"
@@ -261,7 +261,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Imm32.lib intlRDC.lib gdk_winlib32RDC.lib $(DllPrefix)gdk-pixbuf$(GdkPixbufDllSuffix)RDC.lib $(DllPrefix)gobject32$(GlibDllSuffix)RDC.lib $(DllPrefix)gmodule32$(GlibDllSuffix)RDC.lib $(DllPrefix)glib32$(GlibDllSuffix)RDC.lib $(DllPrefix)gio32$(GlibDllSuffix)RDC.lib $(DllPrefix)cairo32$(CairoDllSuffix)RDC.lib $(DllPrefix)pango32$(PangoDllSuffix)RDC.lib $(DllPrefix)pangocairo32$(PangoDllSuffix)RDC.lib"
+				AdditionalDependencies="Imm32.lib intlRDC.lib gdk_winlib32RDC.lib $(DllPrefix)gdk-pixbuf32$(GdkPixbufDllSuffix)RDC.lib $(DllPrefix)gobject32$(GlibDllSuffix)RDC.lib $(DllPrefix)gmodule32$(GlibDllSuffix)RDC.lib $(DllPrefix)glib32$(GlibDllSuffix)RDC.lib $(DllPrefix)gio32$(GlibDllSuffix)RDC.lib $(DllPrefix)cairo32$(CairoDllSuffix)RDC.lib $(DllPrefix)pango32$(PangoDllSuffix)RDC.lib $(DllPrefix)pangocairo32$(PangoDllSuffix)RDC.lib"
 				OutputFile="$(OutDir)\$(DllPrefix)$(ProjectName)32$(DllSuffix)RDC.dll"
 				AdditionalLibraryDirectories="&quot;$(ProjectDir)$(ConfigurationName)\lib&quot;;&quot;$(GenericWin32LibraryFolder)&quot;"
 				ModuleDefinitionFile="$(ProjectDir)\$(ProjectName).def"
