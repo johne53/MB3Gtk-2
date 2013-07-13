@@ -450,7 +450,7 @@ gtk_rc_get_im_module_file (void)
       if (im_module_file)
 	result = g_strdup (im_module_file);
       else
-	result = g_build_filename (GTK_SYSCONFDIR, "gtk-2.0", "gtk.immodules", NULL);
+        result = gtk_rc_make_default_dir ("immodules.cache");
     }
 
   return result;
@@ -522,8 +522,18 @@ gtk_rc_add_initial_default_files (void)
   else
     {
       const gchar *home;
-      str = g_build_filename (GTK_SYSCONFDIR, "gtk-2.0", "gtkrc", NULL);
+      const gchar * const *config_dirs;
+      const gchar *config_dir;
 
+      config_dirs = g_get_system_config_dirs ();
+      for (config_dir = *config_dirs; *config_dirs != NULL; config_dirs++)
+        {
+          str = g_build_filename (config_dir, "gtk-2.0", "gtkrc", NULL);
+          gtk_rc_add_default_file (str);
+          g_free (str);
+        }
+
+      str = g_build_filename (GTK_SYSCONFDIR, "gtk-2.0", "gtkrc", NULL);
       gtk_rc_add_default_file (str);
       g_free (str);
 
