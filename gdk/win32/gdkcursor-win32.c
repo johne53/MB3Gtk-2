@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#define GDK_PIXBUF_ENABLE_BACKEND /* Ugly? */
+// Commented out by JE - 06-08-13 (already defined on the command line) #define GDK_PIXBUF_ENABLE_BACKEND /* Ugly? */
 #include "gdkdisplay.h"
 #include "gdkscreen.h"
 #include "gdkcursor.h"
