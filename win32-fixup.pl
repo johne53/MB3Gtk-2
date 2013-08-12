@@ -12,11 +12,6 @@ $binary_age = 2420;
 $current_minus_age = 0;
 $gettext_package = "gtk20";
 $gtk_icon_dir = "../rc";
-$atk_api_version = "2.0";
-$pango_api_version = "1.0";
-$glib_api_version = "2.0";
-$gtk_api_version = "2.0";
-$gdk_pixbuf_api_version = "2.0";
 $gtk_binary_version = "v2.24"; # Used to locate various modules and '.rc' files. Change this only when absolutely necessary !
 
 sub process_file
