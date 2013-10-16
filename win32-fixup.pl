@@ -13,6 +13,7 @@ $current_minus_age = 0;
 $gettext_package = "gtk20";
 $gtk_icon_dir = "../rc";
 $gtk_binary_version = "v2.24"; # Used to locate various modules and '.rc' files. Change this only when absolutely necessary !
+$exec_prefix = "lib";
 
 sub process_file
 {
@@ -51,17 +52,33 @@ sub process_file
 	    s/\@Debug32TargetFolder@/$debug32_target_folder/g;
 	    s/\@Release32TargetFolder@/$release32_target_folder/g;
 	    s/\@TargetSxSFolder@/$target_sxs_folder/g;
+	    s/\@prefix@/$prefix/g;
+	    s/\@exec_prefix@/$exec_prefix/g;
+	    s/\@includedir@/$generic_include_folder/g;
+	    s/\@libdir@/$generic_library_folder/g;
 	    s/\@srcdir@/$gtk_icon_dir/g;
+	    s/\@gdktarget@/$target/g;
+	    s/\@VERSION@/$gtk_version/g;
 	    print OUTPUT;
 	}
+}
+
+my $command=join(' ',@ARGV);
+
+if (-1 != index($command, "-X64")) {
+	$target = "64";
+} else {
+	$target = "32";
 }
 
 process_file ("config.h.win32");
 process_file ("gtk/gtkversion.h");
 process_file ("demos/gtk-demo/geninclude.pl");
+process_file ("gail.pc");
+process_file ("gdk-2.0.pc");
+process_file ("gtk+-2.0.pc");
 
-my $command=join(' ',@ARGV);
-if ($command eq -buildall) {
+if (-1 != index($command, "-buildall")) {
 	process_file ("msvc/gtk.vsprops");
 	process_file ("gdk/win32/rc/gdk.rc");
 	process_file ("gtk/gtk-win32.rc");
