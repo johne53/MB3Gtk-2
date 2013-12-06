@@ -113,7 +113,6 @@ struct AsyncFuncData
 {
   GtkFileSystem *file_system;
   GFile *file;
-  GtkFolder *folder;
   GCancellable *cancellable;
   gchar *attributes;
 
@@ -828,9 +827,6 @@ free_async_data (AsyncFuncData *async_data)
   g_object_unref (async_data->file);
   g_object_unref (async_data->cancellable);
 
-  if (async_data->folder)
-    g_object_unref (async_data->folder);
-
   g_free (async_data->attributes);
   g_free (async_data);
 }
@@ -866,6 +862,9 @@ enumerate_children_callback (GObject      *source_object,
   gdk_threads_leave ();
 
   free_async_data (async_data);
+
+  if (folder)
+    g_object_unref (folder);
 
   if (error)
     g_error_free (error);
