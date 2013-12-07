@@ -1375,7 +1375,7 @@ render_icon_name_pixbuf (GtkIconSource    *icon_source,
 			 const char       *detail)
 {
   GdkPixbuf *pixbuf;
-  GdkPixbuf *tmp_pixbuf = 0; // Initialization added by JE - 6-12-13
+  GdkPixbuf *tmp_pixbuf = 0; // Initialization added by JE - 6-12-2013. Redundant now after Benjamin Otte's fix (see below)
   GtkIconSource tmp_source;
   GdkScreen *screen;
   GtkIconTheme *icon_theme;
@@ -1464,7 +1464,7 @@ render_icon_name_pixbuf (GtkIconSource    *icon_source,
           gtk_icon_info_free (info);
         }
       else
-        tmp_pixbuf = NULL;
+        tmp_pixbuf = NULL; // Added by Benjamin Otte
     }
   else
     {
