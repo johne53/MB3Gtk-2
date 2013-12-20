@@ -1530,6 +1530,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\gtk\gtkstock.h"
+				>
+			</File>
+			<File
 				RelativePath="..\gtk\gtktextbtree.h"
 				>
 			</File>
