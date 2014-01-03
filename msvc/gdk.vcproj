@@ -27,7 +27,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Use existing Aliasdefs and Marshalers"
-				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;"
+				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;gtk\gtkbuiltincache.h.in&quot; &quot;gtk\gtkbuiltincache.h&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -124,7 +124,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Use existing Aliasdefs and Marshalers"
-				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;"
+				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;gtk\gtkbuiltincache.h.in&quot; &quot;gtk\gtkbuiltincache.h&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -218,7 +218,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Generate Aliasdefs and Marshalers"
-				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;perl gdk/makegdkalias.pl -def &lt; &quot;gdk/gdk.symbols&quot; &gt; &quot;gdk/gdkaliasdef.c&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --header &gt; &quot;gdk\gdkmarshalers.h&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --body &gt; &quot;gdk\gdkmarshalers.c&quot;&#x0D;&#x0A;"
+				CommandLine="cd ..&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gdk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;config.h.win32&quot; &quot;gtk/config.h&quot;&#x0D;&#x0A;copy /Y &quot;gtk\gtkbuiltincache.h.in&quot; &quot;gtk\gtkbuiltincache.h&quot;&#x0D;&#x0A;perl gdk/makegdkalias.pl -def &lt; &quot;gdk/gdk.symbols&quot; &gt; &quot;gdk/gdkaliasdef.c&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --header &gt; &quot;gdk\gdkmarshalers.h&quot;&#x0D;&#x0A;glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --body &gt; &quot;gdk\gdkmarshalers.c&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
