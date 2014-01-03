@@ -190,3 +190,4 @@ pip-log.txt
 /msvc/Release 32 with Debugging Capability/lib/gdk_winlib32RDC.lib
 /msvc/Debug 32/lib/gdk_winlib32D.lib
 /msvc/Debug 32 with Secure SCL/lib/gdk_winlib32SCLD.lib
+/gtk/gtkbuiltincache.h
