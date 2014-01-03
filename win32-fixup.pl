@@ -82,4 +82,18 @@ if (-1 != index($command, "-buildall")) {
 	process_file ("msvc/gtk.vsprops");
 	process_file ("gdk/win32/rc/gdk.rc");
 	process_file ("gtk/gtk-win32.rc");
+
+	@validate_args = ( "gtk-update-icon-cache", "--validate", "gtk/stock-icons" );
+	@create_args   = ( "gtk-update-icon-cache", "--force", "--ignore-theme-index", "--source", "builtin_icons", "gtk/stock-icons", ">", "gtk/gtkbuiltincache.h.in"  );
+
+	system(@validate_args);
+	if ($? == 0) {
+		system(@create_args);
+		if ($? != 0) {
+			print "Unknown error while generating \"gtkbuiltincache.h.in\" !!!\n";
+		}
+	}
+	else {
+		print "Failed while validating \"stock-icons\" !!!\n";
+	}
 }
