@@ -39,7 +39,8 @@
 gchar*
 gdk_set_locale (void)
 {
-  if (!setlocale (LC_ALL, ""))
+  if (!setlocale (LC_ALL, ".ACP")) /* Changed by JE - 15-04-2015. Was formerly. . .
+  if (!setlocale (LC_ALL, "")) */
     g_warning ("locale not supported by C library");
   
   return g_win32_getlocale ();
