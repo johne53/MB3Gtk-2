@@ -84,13 +84,12 @@ if (-1 != index($command, "-buildall")) {
 	process_file ("gtk/gtk-win32.rc");
 
 	@validate_args = ( "gtk-update-icon-cache", "--validate", "gtk/stock-icons" );
-	@create_args   = ( "gtk-update-icon-cache", "--force", "--ignore-theme-index", "--source", "builtin_icons", "gtk/stock-icons", ">", "gtk/gtkbuiltincache.h.in"  );
 
 	system(@validate_args);
 	if ($? == 0) {
-		system(@create_args);
+		my $output = `gtk-update-icon-cache --force --ignore-theme-index --source builtin_icons gtk/stock-icons > gtk/gtkbuiltincache.h.in`;
 		if ($? != 0) {
-			print "Unknown error while generating \"gtkbuiltincache.h.in\" !!!\n";
+			print "An error occurred while generating \"gtkbuiltincache.h.in\" !!!\n";
 		}
 	}
 	else {
