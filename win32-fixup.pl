@@ -3,12 +3,12 @@
 
 require "../local-paths.lib";
 
-$gtk_version = "2.24.26";
+$gtk_version = "2.24.27";
 $major = 2;
 $minor = 24;
-$micro = 26;
-$interface_age = 26;
-$binary_age = 2426;
+$micro = 27;
+$interface_age = 27;
+$binary_age = 2427;
 $current_minus_age = 0;
 $gettext_package = "gtk20";
 $gtk_icon_dir = "../rc";
