@@ -2619,7 +2619,7 @@ gdk_window_remove_filter (GdkWindow     *window,
 			  gpointer       data)
 {
   GdkWindowObject *private;
-  GList *tmp_list, *node;
+  GList *tmp_list;
   GdkEventFilter *filter;
 
   g_return_if_fail (window == NULL || GDK_IS_WINDOW (window));
@@ -2634,7 +2634,6 @@ gdk_window_remove_filter (GdkWindow     *window,
   while (tmp_list)
     {
       filter = (GdkEventFilter *)tmp_list->data;
-      node = tmp_list;
       tmp_list = tmp_list->next;
 
       if ((filter->function == function) && (filter->data == data))
@@ -8785,7 +8784,7 @@ do_child_shapes (GdkWindow *window,
 
   gdk_window_shape_combine_region (window, region, 0, 0);
 
-  cairo_region_destroy (region);
+  gdk_region_destroy (region);
 }
 
 /**
