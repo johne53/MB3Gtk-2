@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="libwimp"
-	ProjectGUID="{7660FB4E-2AE6-483E-8813-0974CBE6F97F}"
-	RootNamespace="libwimp"
+	Name="gailutil"
+	ProjectGUID="{B3B6558A-01C8-4C72-9BDE-84ABB1AE67DF}"
+	RootNamespace="gailutil"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -30,9 +30,9 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\gdk;..\..\..\gdk\win32"
 				Optimization="0"
-				PreprocessorDefinitions="_DEBUG;G_ENABLE_DEBUG"
+				AdditionalIncludeDirectories="..\..\..\gdk"
+				PreprocessorDefinitions="_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -42,10 +42,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pangowin32-1.0.lib pango-1.0.lib cairo.lib"
+				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
+				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
 				LinkIncremental="2"
+				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
+				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
 				TargetMachine="1"
 			/>
 		</Configuration>
@@ -61,8 +64,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\gdk;..\..\..\gdk\win32"
 				Optimization="2"
+				AdditionalIncludeDirectories="..\..\..\gdk"
 				EnableIntrinsicFunctions="true"
 				PreprocessorDefinitions=""
 				RuntimeLibrary="2"
@@ -73,12 +76,15 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pangowin32-1.0.lib pango-1.0.lib cairo.lib"
+				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
+				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
 				LinkIncremental="1"
+				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
 				TargetMachine="1"
 			/>
 		</Configuration>
@@ -94,8 +100,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\gdk;..\..\..\gdk\win32"
-				PreprocessorDefinitions="_DEBUG;G_ENABLE_DEBUG"
+				AdditionalIncludeDirectories="..\..\..\gdk"
+				PreprocessorDefinitions="_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -105,10 +111,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pangowin32-1.0.lib pango-1.0.lib cairo.lib"
+				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
+				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
 				LinkIncremental="2"
+				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
+				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
 				TargetMachine="17"
 			/>
 		</Configuration>
@@ -123,7 +132,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\gdk;..\..\..\gdk\win32"
+				AdditionalIncludeDirectories="..\..\..\gdk"
 				PreprocessorDefinitions=""
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -132,12 +141,15 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pangowin32-1.0.lib pango-1.0.lib cairo.lib"
+				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
+				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
 				LinkIncremental="2"
+				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
 				TargetMachine="17"
 			/>
 		</Configuration>
@@ -150,10 +162,7 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<File RelativePath="..\..\..\modules\engines\ms-windows\msw_rc_style.c" />
-			<File RelativePath="..\..\..\modules\engines\ms-windows\msw_style.c" />
-			<File RelativePath="..\..\..\modules\engines\ms-windows\msw_theme_main.c" />
-			<File RelativePath="..\..\..\modules\engines\ms-windows\xp_theme.c" />
+#include "gailutil.sourcefiles"
 		</Filter>
 		<Filter
 			Name="Headers"

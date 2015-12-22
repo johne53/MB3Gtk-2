@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="gailutil"
-	ProjectGUID="{B3B6558A-01C8-4C72-9BDE-84ABB1AE67DF}"
-	RootNamespace="gailutil"
+	Name="gtk-update-icon-cache"
+	ProjectGUID="{FAB0AD6F-AEBF-4AF8-A1CC-6890A9090945}"
+	RootNamespace="gtkupdateiconcache"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -21,17 +21,13 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			ConfigurationType="2"
 			InheritedPropertySheets=".\gtk-build-defines.vsprops"
-			CharacterSet="2"
+			ConfigurationType="1"
+			CharacterSet="1"
 			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\gdk"
 				PreprocessorDefinitions="_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -42,20 +38,16 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
-				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
 				LinkIncremental="2"
-				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
 				GenerateDebugInformation="true"
-				SubSystem="2"
-				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
+				SubSystem="1"
 				TargetMachine="1"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			ConfigurationType="2"
 			InheritedPropertySheets=".\gtk-build-defines.vsprops"
+			ConfigurationType="1"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
@@ -65,7 +57,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
-				AdditionalIncludeDirectories="..\..\..\gdk"
+				AdditionalIncludeDirectories=""
 				EnableIntrinsicFunctions="true"
 				PreprocessorDefinitions=""
 				RuntimeLibrary="2"
@@ -76,31 +68,29 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
-				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
+				AdditionalDependencies=""
 				LinkIncremental="1"
-				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
 				TargetMachine="1"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
 			InheritedPropertySheets=".\gtk-build-defines.vsprops"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			CharacterSet="2"
 			>
 			<Tool
-				Name="VCPreBuildEventTool"
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\gdk"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -111,45 +101,44 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
-				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
+				AdditionalDependencies=""
 				LinkIncremental="2"
-				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
 				GenerateDebugInformation="true"
-				SubSystem="2"
-				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
+				SubSystem="1"
 				TargetMachine="17"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
 			InheritedPropertySheets=".\gtk-build-defines.vsprops"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			CharacterSet="2"
+			WholeProgramOptimization="1"
 			>
 			<Tool
-				Name="VCPreBuildEventTool"
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\gdk"
+				Optimization="2"
+				AdditionalIncludeDirectories=""
+				EnableIntrinsicFunctions="true"
 				PreprocessorDefinitions=""
 				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="pango-1.0.lib atk-1.0.lib"
-				OutputFile="$(OutDir)\$(GtkDllPrefix)$(ProjectName)$(GtkDllSuffix).dll"
-				LinkIncremental="2"
-				ModuleDefinitionFile="..\..\..\modules\other\gail\libgail-util\gailutil.def"
+				AdditionalDependencies=""
+				LinkIncremental="1"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="$(TargetDir)$(ProjectName)-$(ApiVersion).lib"
 				TargetMachine="17"
 			/>
 		</Configuration>
@@ -162,8 +151,7 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<File RelativePath="..\..\..\modules\other\gail\libgail-util\gailmisc.c" />
-			<File RelativePath="..\..\..\modules\other\gail\libgail-util\gailtextutil.c" />
+			<File RelativePath="..\..\..\gtk\updateiconcache.c" />
 		</Filter>
 		<Filter
 			Name="Headers"
