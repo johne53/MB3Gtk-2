@@ -387,6 +387,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\gdk\win32\gdkwin32keys.h"
+				>
+			</File>
+			<File
 				RelativePath="..\gdk\win32\gdkwindow-win32.h"
 				>
 			</File>
