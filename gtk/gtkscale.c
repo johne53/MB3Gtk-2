@@ -242,6 +242,9 @@ gtk_scale_class_init (GtkScaleClass *class)
    * Connect a signal handler which returns an allocated string representing 
    * @value. That string will then be used to display the scale's value.
    *
+   * If no user-provided handlers are installed, the value will be displayed on
+   * its own, rounded according to the value of the #GtkScale:digits property.
+   *
    * Here's an example signal handler which displays a value 1.0 as
    * with "--&gt;1.0&lt;--".
    * |[
@@ -266,11 +269,18 @@ gtk_scale_class_init (GtkScaleClass *class)
                   G_TYPE_STRING, 1,
                   G_TYPE_DOUBLE);
 
+  /**
+   * GtkScale:digits:
+   *
+   * The number of decimal places to which the value is rounded when it is
+   * changed. This also sets the number of digits shown in the displayed value
+   * when using the default handler for the #GtkScale::format-value signal.
+   */
   g_object_class_install_property (gobject_class,
                                    PROP_DIGITS,
                                    g_param_spec_int ("digits",
 						     P_("Digits"),
-						     P_("The number of decimal places that are displayed in the value"),
+						     P_("The number of decimal places to which the value is rounded"),
 						     -1,
 						     MAX_DIGITS,
 						     1,
@@ -590,12 +600,11 @@ gtk_scale_new_with_range (GtkOrientation orientation,
 /**
  * gtk_scale_set_digits:
  * @scale: a #GtkScale
- * @digits: the number of decimal places to display, 
- *     e.g. use 1 to display 1.0, 2 to display 1.00, etc
- * 
- * Sets the number of decimal places that are displayed in the value.
- * Also causes the value of the adjustment to be rounded off to this
- * number of digits, so the retrieved value matches the value the user saw.
+ * @digits: the number of decimal places to which the value will be rounded
+ *
+ * Sets the number of decimal places to which the value is rounded when it is
+ * changed. This also sets the number of digits shown in the displayed value
+ * when using the default handler for the #GtkScale::format-value signal.
  */
 void
 gtk_scale_set_digits (GtkScale *scale,
@@ -612,9 +621,8 @@ gtk_scale_set_digits (GtkScale *scale,
   if (scale->digits != digits)
     {
       scale->digits = digits;
-      if (scale->draw_value)
-	range->round_digits = digits;
-      
+      range->round_digits = digits;
+
       _gtk_scale_clear_layout (scale);
       gtk_widget_queue_resize (GTK_WIDGET (scale));
 
@@ -626,9 +634,10 @@ gtk_scale_set_digits (GtkScale *scale,
  * gtk_scale_get_digits:
  * @scale: a #GtkScale
  *
- * Gets the number of decimal places that are displayed in the value.
+ * Gets the number of decimal places to which the value is rounded on change.
+ * This number is also used by the default #GtkScale::format-value handler.
  *
- * Returns: the number of decimal places that are displayed
+ * Returns: the number of decimal places
  */
 gint
 gtk_scale_get_digits (GtkScale *scale)
@@ -657,10 +666,6 @@ gtk_scale_set_draw_value (GtkScale *scale,
   if (scale->draw_value != draw_value)
     {
       scale->draw_value = draw_value;
-      if (draw_value)
-	GTK_RANGE (scale)->round_digits = scale->digits;
-      else
-	GTK_RANGE (scale)->round_digits = -1;
 
       _gtk_scale_clear_layout (scale);
 
@@ -1270,8 +1275,7 @@ gtk_scale_real_get_layout_offsets (GtkScale *scale,
  * @scale: a #GtkScale
  * @value: adjustment value
  * 
- * Emits #GtkScale::format-value signal to format the value, 
- * if no user signal handlers, falls back to a default format.
+ * Emits the #GtkScale::format-value signal.
  * 
  * Return value: formatted value
  */
