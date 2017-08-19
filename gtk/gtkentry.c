@@ -8367,18 +8367,18 @@ gtk_entry_get_icon_window (GtkEntry             *entry,
 static void
 ensure_has_tooltip (GtkEntry *entry)
 {
-  GtkEntryPrivate *priv;
-  EntryIconInfo *icon_info;
-  int i;
-  gboolean has_tooltip = FALSE;
+  gboolean has_tooltip = gtk_widget_get_tooltip_text (GTK_WIDGET (entry)) != NULL;
 
-  priv = GTK_ENTRY_GET_PRIVATE (entry);
-
-  for (i = 0; i < MAX_ICONS; i++)
+  if (!has_tooltip)
     {
-      if ((icon_info = priv->icons[i]) != NULL)
+      GtkEntryPrivate *priv = GTK_ENTRY_GET_PRIVATE (entry);
+      int i;
+
+      for (i = 0; i < MAX_ICONS; i++)
         {
-          if (icon_info->tooltip != NULL)
+          EntryIconInfo *icon_info = priv->icons[i];
+
+          if (icon_info != NULL && icon_info->tooltip != NULL)
             {
               has_tooltip = TRUE;
               break;
@@ -8439,6 +8439,12 @@ gtk_entry_get_icon_tooltip_text (GtkEntry             *entry,
  *
  * See also gtk_widget_set_tooltip_text() and 
  * gtk_entry_set_icon_tooltip_markup().
+ *
+ * If you unset the widget tooltip via gtk_widget_set_tooltip_text() or
+ * gtk_widget_set_tooltip_markup(), this sets GtkWidget:has-tooltip to %FALSE,
+ * which suppresses icon tooltips too. You can resolve this by then calling
+ * gtk_widget_set_has_tooltip() to set GtkWidget:has-tooltip back to %TRUE, or
+ * setting at least one non-empty tooltip on any icon achieves the same result.
  *
  * Since: 2.16
  */
@@ -8517,7 +8523,7 @@ gtk_entry_get_icon_tooltip_markup (GtkEntry             *entry,
  * Use %NULL for @tooltip to remove an existing tooltip.
  *
  * See also gtk_widget_set_tooltip_markup() and 
- * gtk_enty_set_icon_tooltip_text().
+ * gtk_entry_set_icon_tooltip_text().
  *
  * Since: 2.16
  */
