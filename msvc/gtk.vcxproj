@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release with Debugging Capability|x64">
+      <Configuration>Release with Debugging Capability</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E2B4CA0D-BFFF-4132-B36B-38955CD4C3BC}</ProjectGuid>
+    <RootNamespace>gtk</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+    <Import Project="gtk.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+    <Import Project="gtk.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+    <Import Project="gtk.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>16.0.30523.133</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>$(DllPrefix)$(ProjectName)64$(DllSuffix)D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>$(DllPrefix)$(ProjectName)64$(DllSuffix)</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>$(DllPrefix)$(ProjectName)64$(DllSuffix)RDC</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Message>Use existing Built-ins and Marshalers</Message>
+      <Command>cd ..
+copy /Y "config.h.win32" "gdk/config.h"
+copy /Y "config.h.win32" "gtk/config.h"
+copy /Y "gtk\gtkbuiltincache.h.in" "gtk\gtkbuiltincache.h"
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/FI$(TargetSxsFolder)\targetsxs.h %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;$(GtkBuildRootFolder)\gdk;$(GenericIncludeFolder);$(GenericIncludeFolder)\cairo;$(GenericIncludeFolder)\pango-$(PangoApiVersion);$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gdk;$(GenericIncludeFolder)\atk-$(AtkApiVersion);$(GenericLibraryFolder)\gtk-$(GtkApiVersion)\include;$(GenericLibraryFolder)\glib-$(GlibApiVersion)\include;$(GdkPixbufBuildRootFolder);$(GlibBuildRootFolder);..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GTK_HOST="win64";GTK_PREFIX="Not set (placeholder)";GTK_LIBDIR="Not set (placeholder)";GTK_PRINT_BACKENDS="file,lpr";WIN32;_WIN64;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN="Gtk";GTK_COMPILATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <StringPooling>false</StringPooling>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Message>Use existing Module Definition file</Message>
+      <Command>cd ..</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;intl64D.lib;$(DllPrefix)gdk-pixbuf64$(GdkPixbufDllSuffix)D.lib;$(DllPrefix)gobject64$(GlibDllSuffix)D.lib;$(DllPrefix)gmodule64$(GlibDllSuffix)D.lib;$(DllPrefix)glib64$(GlibDllSuffix)D.lib;$(DllPrefix)gio64$(GlibDllSuffix)D.lib;$(DllPrefix)gdk64$(GlibDllSuffix)D.lib;$(DllPrefix)atk64$(AtkDllSuffix)D.lib;$(DllPrefix)cairo64$(CairoDllSuffix)D.lib;$(DllPrefix)pango64$(PangoDllSuffix)D.lib;$(DllPrefix)pangocairo64$(PangoDllSuffix)D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>$(ProjectDir)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\libgtk_win64_2_0/libgtk_win64_2_0.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy /Y "$(OutDir)$(TargetName).dll" "$(Debug64TargetFolder)\$(TargetName).dll"
+copy /Y "$(OutDir)$(TargetName).dll" "$(Debug64TestSuiteFolder)\$(TargetName).dll"
+copy /Y "$(OutDir)$(TargetName).lib" "$(GenericWin64LibraryFolder)\$(TargetName).lib"
+copy /Y "$(TargetPath)" "$(Debug64TargetFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(TargetPath)" "$(Debug64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent>
+      <Message>Use existing Built-ins and Marshalers</Message>
+      <Command>cd ..
+copy /Y "config.h.win32" "gdk/config.h"
+copy /Y "config.h.win32" "gtk/config.h"
+copy /Y "gtk\gtkbuiltincache.h.in" "gtk\gtkbuiltincache.h"
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/FI$(TargetSxsFolder)\targetsxs.h %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.;$(GtkBuildRootFolder)\gdk;$(GenericIncludeFolder);$(GenericIncludeFolder)\cairo;$(GenericIncludeFolder)\pango-$(PangoApiVersion);$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gdk;$(GenericIncludeFolder)\atk-$(AtkApiVersion);$(GenericLibraryFolder)\gtk-$(GtkApiVersion)\include;$(GenericLibraryFolder)\glib-$(GlibApiVersion)\include;$(GdkPixbufBuildRootFolder);$(GlibBuildRootFolder);..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SECURE_SCL=0;GTK_HOST="win64";GTK_PREFIX="Not set (placeholder)";GTK_LIBDIR="Not set (placeholder)";GTK_PRINT_BACKENDS="file,lpr";WIN32;_WIN64;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN="Gtk";GTK_COMPILATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>CompileAsC</CompileAs>
+      <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Message>Use existing Module Definition file</Message>
+      <Command>cd ..</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;intl64.lib;$(DllPrefix)gdk-pixbuf64$(GdkPixbufDllSuffix).lib;$(DllPrefix)gobject64$(GlibDllSuffix).lib;$(DllPrefix)gmodule64$(GlibDllSuffix).lib;$(DllPrefix)glib64$(GlibDllSuffix).lib;$(DllPrefix)gio64$(GlibDllSuffix).lib;$(DllPrefix)gdk64$(GlibDllSuffix).lib;$(DllPrefix)atk64$(AtkDllSuffix).lib;$(DllPrefix)cairo64$(CairoDllSuffix).lib;$(DllPrefix)pango64$(PangoDllSuffix).lib;$(DllPrefix)pangocairo64$(PangoDllSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)\$(ProjectName).def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\libgtk_win64_2_0/libgtk_win64_2_0.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetPath)" "$(Release64TargetFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(TargetPath)" "$(Release64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'">
+    <PreBuildEvent>
+      <Message>Generate Built-ins and Marshalers</Message>
+      <Command>mkdir "$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gtk" 2&gt; NUL
+python $(GlibBuildRootFolder)/gobject/glib-mkenums --template ../gtk/gtktypebuiltins.h.template ../gtk/gtk.h ../gtk/gtkaboutdialog.h  ../gtk/gtkaccelgroup.h ../gtk/gtkaccellabel.h ../gtk/gtkaccelmap.h ../gtk/gtkaccessible.h ../gtk/gtkaction.h ../gtk/gtkactiongroup.h ../gtk/gtkactivatable.h ../gtk/gtkadjustment.h ../gtk/gtkalignment.h ../gtk/gtkarrow.h ../gtk/gtkaspectframe.h ../gtk/gtkassistant.h ../gtk/gtkbbox.h ../gtk/gtkbin.h ../gtk/gtkbindings.h ../gtk/gtkbox.h ../gtk/gtkbuilder.h ../gtk/gtkbuildable.h ../gtk/gtkbutton.h ../gtk/gtkcalendar.h ../gtk/gtkcelleditable.h ../gtk/gtkcelllayout.h ../gtk/gtkcellrenderer.h ../gtk/gtkcellrendereraccel.h ../gtk/gtkcellrenderercombo.h ../gtk/gtkcellrendererpixbuf.h ../gtk/gtkcellrendererprogress.h ../gtk/gtkcellrendererspin.h ../gtk/gtkcellrendererspinner.h ../gtk/gtkcellrenderertext.h ../gtk/gtkcellrenderertoggle.h ../gtk/gtkcellview.h ../gtk/gtkcheckbutton.h ../gtk/gtkcheckmenuitem.h  ../gtk/gtkclipboard.h ../gtk/gtkcolorbutton.h ../gtk/gtkcolorsel.h ../gtk/gtkcolorseldialog.h ../gtk/gtkcombobox.h ../gtk/gtkcomboboxentry.h ../gtk/gtkcomboboxtext.h ../gtk/gtkcontainer.h ../gtk/gtkdebug.h ../gtk/gtkdialog.h ../gtk/gtkdnd.h ../gtk/gtkdrawingarea.h ../gtk/gtkeditable.h ../gtk/gtkentry.h ../gtk/gtkentrybuffer.h ../gtk/gtkentrycompletion.h ../gtk/gtkenums.h ../gtk/gtkeventbox.h ../gtk/gtkexpander.h ../gtk/gtkfilechooser.h ../gtk/gtkfilechooserbutton.h ../gtk/gtkfilechooserdialog.h ../gtk/gtkfilechooserwidget.h ../gtk/gtkfilefilter.h ../gtk/gtkfixed.h ../gtk/gtkfontbutton.h ../gtk/gtkfontsel.h ../gtk/gtkframe.h ../gtk/gtkgc.h ../gtk/gtkhandlebox.h ../gtk/gtkhbbox.h ../gtk/gtkbbox.h  ../gtk/gtkhpaned.h ../gtk/gtkhruler.h ../gtk/gtkhscale.h ../gtk/gtkhscrollbar.h ../gtk/gtkhseparator.h ../gtk/gtkhsv.h ../gtk/gtkiconfactory.h ../gtk/gtkicontheme.h ../gtk/gtkiconview.h ../gtk/gtkimage.h ../gtk/gtkimagemenuitem.h ../gtk/gtkimcontext.h ../gtk/gtkimcontextsimple.h ../gtk/gtkimmodule.h ../gtk/gtkimmulticontext.h ../gtk/gtkinfobar.h ../gtk/gtkinvisible.h ../gtk/gtkitem.h ../gtk/gtklabel.h ../gtk/gtklayout.h ../gtk/gtklinkbutton.h ../gtk/gtkliststore.h ../gtk/gtkmain.h ../gtk/gtkmenu.h ../gtk/gtkmenubar.h ../gtk/gtkmenuitem.h ../gtk/gtkmenushell.h ../gtk/gtkmenutoolbutton.h ../gtk/gtkmessagedialog.h ../gtk/gtkmisc.h ../gtk/gtkmodules.h ../gtk/gtkmountoperation.h ../gtk/gtknotebook.h ../gtk/gtkobject.h  ../gtk/gtkoffscreenwindow.h ../gtk/gtkorientable.h ../gtk/gtkpagesetup.h ../gtk/gtkpaned.h ../gtk/gtkpapersize.h ../gtk/gtkplug.h ../gtk/gtkprintcontext.h ../gtk/gtkprintoperation.h ../gtk/gtkprintoperationpreview.h ../gtk/gtkprintsettings.h ../gtk/gtkprivate.h ../gtk/gtkprogressbar.h ../gtk/gtkradioaction.h ../gtk/gtkradiobutton.h ../gtk/gtkradiomenuitem.h ../gtk/gtkrange.h ../gtk/gtkrc.h ../gtk/gtkrecentaction.h ../gtk/gtkrecentchooser.h ../gtk/gtkrecentchooserdialog.h ../gtk/gtkrecentchoosermenu.h ../gtk/gtkrecentchooserwidget.h ../gtk/gtkrecentfilter.h ../gtk/gtkrecentmanager.h ../gtk/gtkruler.h ../gtk/gtkscale.h ../gtk/gtkscalebutton.h ../gtk/gtkscrollbar.h ../gtk/gtkscrolledwindow.h ../gtk/gtkselection.h ../gtk/gtkseparator.h ../gtk/gtkseparatormenuitem.h ../gtk/gtkseparatortoolitem.h ../gtk/gtkshow.h  ../gtk/gtksettings.h ../gtk/gtksizegroup.h ../gtk/gtksocket.h ../gtk/gtkspinbutton.h  ../gtk/gtkspinner.h ../gtk/gtkstatusbar.h ../gtk/gtkstatusicon.h ../gtk/gtkstock.h ../gtk/gtkstyle.h ../gtk/gtktable.h ../gtk/gtktearoffmenuitem.h ../gtk/gtktestutils.h ../gtk/gtktextbuffer.h ../gtk/gtktextbufferrichtext.h ../gtk/gtktextchild.h ../gtk/gtktextdisplay.h ../gtk/gtktextiter.h ../gtk/gtktextmark.h ../gtk/gtktexttag.h ../gtk/gtktexttagtable.h ../gtk/gtktextview.h ../gtk/gtktoggleaction.h ../gtk/gtktogglebutton.h ../gtk/gtktoggletoolbutton.h ../gtk/gtktoolbar.h ../gtk/gtktoolbutton.h ../gtk/gtktoolitem.h ../gtk/gtktoolitemgroup.h ../gtk/gtktoolpalette.h ../gtk/gtktoolshell.h ../gtk/gtktooltip.h ../gtk/gtktreednd.h ../gtk/gtktreemodel.h ../gtk/gtktreemodelfilter.h ../gtk/gtktreemodelsort.h ../gtk/gtktreeselection.h ../gtk/gtktreesortable.h ../gtk/gtktreestore.h  ../gtk/gtktreeview.h ../gtk/gtktreeviewcolumn.h ../gtk/gtktypeutils.h ../gtk/gtkuimanager.h ../gtk/gtkvbbox.h ../gtk/gtkvbox.h ../gtk/gtkviewport.h ../gtk/gtkvolumebutton.h ../gtk/gtkvpaned.h ../gtk/gtkruler.h ../gtk/gtkvscale.h ../gtk/gtkvscrollbar.h ../gtk/gtkvseparator.h ../gtk/gtkwidget.h ../gtk/gtkwindow.h ../gtk/gtktree.h ../gtk/gtkclist.h ../gtk/gtkctree.h  &gt; ../gtk/gtktypebuiltins.h
+python $(GlibBuildRootFolder)/gobject/glib-mkenums --template ../gtk/gtktypebuiltins.c.template ../gtk/gtk.h ../gtk/gtkaboutdialog.h  ../gtk/gtkaccelgroup.h ../gtk/gtkaccellabel.h ../gtk/gtkaccelmap.h ../gtk/gtkaccessible.h ../gtk/gtkaction.h ../gtk/gtkactiongroup.h ../gtk/gtkactivatable.h ../gtk/gtkadjustment.h ../gtk/gtkalignment.h ../gtk/gtkarrow.h ../gtk/gtkaspectframe.h ../gtk/gtkassistant.h ../gtk/gtkbbox.h ../gtk/gtkbin.h ../gtk/gtkbindings.h ../gtk/gtkbox.h ../gtk/gtkbuilder.h ../gtk/gtkbuildable.h ../gtk/gtkbutton.h ../gtk/gtkcalendar.h ../gtk/gtkcelleditable.h ../gtk/gtkcelllayout.h ../gtk/gtkcellrenderer.h ../gtk/gtkcellrendereraccel.h ../gtk/gtkcellrenderercombo.h ../gtk/gtkcellrendererpixbuf.h ../gtk/gtkcellrendererprogress.h ../gtk/gtkcellrendererspin.h ../gtk/gtkcellrendererspinner.h ../gtk/gtkcellrenderertext.h ../gtk/gtkcellrenderertoggle.h ../gtk/gtkcellview.h ../gtk/gtkcheckbutton.h ../gtk/gtkcheckmenuitem.h  ../gtk/gtkclipboard.h ../gtk/gtkcolorbutton.h ../gtk/gtkcolorsel.h ../gtk/gtkcolorseldialog.h ../gtk/gtkcombobox.h ../gtk/gtkcomboboxentry.h ../gtk/gtkcomboboxtext.h ../gtk/gtkcontainer.h ../gtk/gtkdebug.h ../gtk/gtkdialog.h ../gtk/gtkdnd.h ../gtk/gtkdrawingarea.h ../gtk/gtkeditable.h ../gtk/gtkentry.h ../gtk/gtkentrybuffer.h ../gtk/gtkentrycompletion.h ../gtk/gtkenums.h ../gtk/gtkeventbox.h ../gtk/gtkexpander.h ../gtk/gtkfilechooser.h ../gtk/gtkfilechooserbutton.h ../gtk/gtkfilechooserdialog.h ../gtk/gtkfilechooserwidget.h ../gtk/gtkfilefilter.h ../gtk/gtkfixed.h ../gtk/gtkfontbutton.h ../gtk/gtkfontsel.h ../gtk/gtkframe.h ../gtk/gtkgc.h ../gtk/gtkhandlebox.h ../gtk/gtkhbbox.h ../gtk/gtkbbox.h  ../gtk/gtkhpaned.h ../gtk/gtkhruler.h ../gtk/gtkhscale.h ../gtk/gtkhscrollbar.h ../gtk/gtkhseparator.h ../gtk/gtkhsv.h ../gtk/gtkiconfactory.h ../gtk/gtkicontheme.h ../gtk/gtkiconview.h ../gtk/gtkimage.h ../gtk/gtkimagemenuitem.h ../gtk/gtkimcontext.h ../gtk/gtkimcontextsimple.h ../gtk/gtkimmodule.h ../gtk/gtkimmulticontext.h ../gtk/gtkinfobar.h ../gtk/gtkinvisible.h ../gtk/gtkitem.h ../gtk/gtklabel.h ../gtk/gtklayout.h ../gtk/gtklinkbutton.h ../gtk/gtkliststore.h ../gtk/gtkmain.h ../gtk/gtkmenu.h ../gtk/gtkmenubar.h ../gtk/gtkmenuitem.h ../gtk/gtkmenushell.h ../gtk/gtkmenutoolbutton.h ../gtk/gtkmessagedialog.h ../gtk/gtkmisc.h ../gtk/gtkmodules.h ../gtk/gtkmountoperation.h ../gtk/gtknotebook.h ../gtk/gtkobject.h  ../gtk/gtkoffscreenwindow.h ../gtk/gtkorientable.h ../gtk/gtkpagesetup.h ../gtk/gtkpaned.h ../gtk/gtkpapersize.h ../gtk/gtkplug.h ../gtk/gtkprintcontext.h ../gtk/gtkprintoperation.h ../gtk/gtkprintoperationpreview.h ../gtk/gtkprintsettings.h ../gtk/gtkprivate.h ../gtk/gtkprogressbar.h ../gtk/gtkradioaction.h ../gtk/gtkradiobutton.h ../gtk/gtkradiomenuitem.h ../gtk/gtkrange.h ../gtk/gtkrc.h ../gtk/gtkrecentaction.h ../gtk/gtkrecentchooser.h ../gtk/gtkrecentchooserdialog.h ../gtk/gtkrecentchoosermenu.h ../gtk/gtkrecentchooserwidget.h ../gtk/gtkrecentfilter.h ../gtk/gtkrecentmanager.h ../gtk/gtkruler.h ../gtk/gtkscale.h ../gtk/gtkscalebutton.h ../gtk/gtkscrollbar.h ../gtk/gtkscrolledwindow.h ../gtk/gtkselection.h ../gtk/gtkseparator.h ../gtk/gtkseparatormenuitem.h ../gtk/gtkseparatortoolitem.h ../gtk/gtkshow.h  ../gtk/gtksettings.h ../gtk/gtksizegroup.h ../gtk/gtksocket.h ../gtk/gtkspinbutton.h  ../gtk/gtkspinner.h ../gtk/gtkstatusbar.h ../gtk/gtkstatusicon.h ../gtk/gtkstock.h ../gtk/gtkstyle.h ../gtk/gtktable.h ../gtk/gtktearoffmenuitem.h ../gtk/gtktestutils.h ../gtk/gtktextbuffer.h ../gtk/gtktextbufferrichtext.h ../gtk/gtktextchild.h ../gtk/gtktextdisplay.h ../gtk/gtktextiter.h ../gtk/gtktextmark.h ../gtk/gtktexttag.h ../gtk/gtktexttagtable.h ../gtk/gtktextview.h ../gtk/gtktoggleaction.h ../gtk/gtktogglebutton.h ../gtk/gtktoggletoolbutton.h ../gtk/gtktoolbar.h ../gtk/gtktoolbutton.h ../gtk/gtktoolitem.h ../gtk/gtktoolitemgroup.h ../gtk/gtktoolpalette.h ../gtk/gtktoolshell.h ../gtk/gtktooltip.h ../gtk/gtktreednd.h ../gtk/gtktreemodel.h ../gtk/gtktreemodelfilter.h ../gtk/gtktreemodelsort.h ../gtk/gtktreeselection.h ../gtk/gtktreesortable.h ../gtk/gtktreestore.h  ../gtk/gtktreeview.h ../gtk/gtktreeviewcolumn.h ../gtk/gtktypeutils.h ../gtk/gtkuimanager.h ../gtk/gtkvbbox.h ../gtk/gtkvbox.h ../gtk/gtkviewport.h ../gtk/gtkvolumebutton.h ../gtk/gtkvpaned.h ../gtk/gtkruler.h ../gtk/gtkvscale.h ../gtk/gtkvscrollbar.h ../gtk/gtkvseparator.h ../gtk/gtkwidget.h ../gtk/gtkwindow.h ../gtk/gtktree.h ../gtk/gtkclist.h ../gtk/gtkctree.h  &gt; ../gtk/gtktypebuiltins.c
+cd ..
+copy /Y "gtk\gtktypebuiltins.h" "$(GenericIncludefolder)\gtk-$(GtkApiVersion)\gtk"
+copy /Y "config.h.win32" "$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\config.h"
+copy /Y "config.h.win32" "gdk/config.h"
+copy /Y "config.h.win32" "gtk/config.h"
+copy /Y "gtk\gtkbuiltincache.h.in" "gtk\gtkbuiltincache.h"
+perl gtk/makegtkalias.pl &lt; "gtk/gtk.symbols" &gt; "gtk/gtkalias.h"
+perl gtk/makegtkalias.pl -def &lt; "gtk/gtk.symbols" &gt; "gtk/gtkaliasdef.c"
+python $(GlibBuildRootFolder)/gobject/glib-genmarshal --prefix=_gtk_marshal gtk/gtkmarshalers.list --header &gt; "gtk\gtkmarshalers.h"
+python $(GlibBuildRootFolder)/gobject/glib-genmarshal --prefix=gtk_marshal gtk/gtkmarshal.list --header &gt; "gtk\gtkmarshal.h"
+python $(GlibBuildRootFolder)/gobject/glib-genmarshal --prefix=_gtk_marshal gtk/gtkmarshalers.list --body &gt; "gtk\gtkmarshalers.c"
+python $(GlibBuildRootFolder)/gobject/glib-genmarshal --prefix=gtk_marshal gtk/gtkmarshal.list --body &gt; "gtk\gtkmarshal.c"
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/FI$(TargetSxsFolder)\targetsxs.h %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;$(GtkBuildRootFolder)\gdk;$(GenericIncludeFolder);$(GenericIncludeFolder)\cairo;$(GenericIncludeFolder)\pango-$(PangoApiVersion);$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gdk;$(GenericIncludeFolder)\atk-$(AtkApiVersion);$(GenericLibraryFolder)\gtk-$(GtkApiVersion)\include;$(GenericLibraryFolder)\glib-$(GlibApiVersion)\include;$(GdkPixbufBuildRootFolder);$(GlibBuildRootFolder);..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SECURE_SCL=0;GTK_HOST="win64";GTK_PREFIX="Not set (placeholder)";GTK_LIBDIR="Not set (placeholder)";GTK_PRINT_BACKENDS="file,lpr";WIN32;_WIN64;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN="Gtk";GTK_COMPILATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Message>Generate Module Definition file</Message>
+      <Command>echo EXPORTS &gt; $(ProjectDir)\$(ProjectName).def
+cl /EP  -DINCLUDE_VARIABLES -DG_OS_WIN32 -DALL_FILES -DG_GNUC_MALLOC=""  -DG_GNUC_CONST="" -DG_GNUC_NULL_TERMINATED="" -DG_GNUC_NORETURN="" $(GtkBuildRootFolder)\gtk\gtk.symbols &gt;&gt; $(ProjectDir)\$(ProjectName).def
+</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;intl64RDC.lib;$(DllPrefix)gdk-pixbuf64$(GdkPixbufDllSuffix)RDC.lib;$(DllPrefix)gobject64$(GlibDllSuffix)RDC.lib;$(DllPrefix)gmodule64$(GlibDllSuffix)RDC.lib;$(DllPrefix)glib64$(GlibDllSuffix)RDC.lib;$(DllPrefix)gio64$(GlibDllSuffix)RDC.lib;$(DllPrefix)gdk64$(GlibDllSuffix)RDC.lib;$(DllPrefix)atk64$(AtkDllSuffix)RDC.lib;$(DllPrefix)cairo64$(CairoDllSuffix)RDC.lib;$(DllPrefix)pango64$(PangoDllSuffix)RDC.lib;$(DllPrefix)pangocairo64$(PangoDllSuffix)RDC.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\libgtk_win64_2_0/libgtk_win64_2_0.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>mkdir "$(GenericLibraryFolder)\pkgconfig" 2&gt; NUL
+mkdir "$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gtk" 2&gt; NUL
+copy /Y "..\gtk\gtk*.h" "$(GenericIncludeFolder)\gtk-$(GtkApiVersion)\gtk"
+copy /Y "$(TargetPath)" "$(Release64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
+copy /Y "..\gtk+-2.0.pc" "$(GenericLibraryFolder)\pkgconfig"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\gtk\fnmatch.c" />
+    <ClCompile Include="..\gtk\gtkaboutdialog.c" />
+    <ClCompile Include="..\gtk\gtkaccelgroup.c" />
+    <ClCompile Include="..\gtk\gtkaccellabel.c" />
+    <ClCompile Include="..\gtk\gtkaccelmap.c" />
+    <ClCompile Include="..\gtk\gtkaccessible.c" />
+    <ClCompile Include="..\gtk\gtkaction.c" />
+    <ClCompile Include="..\gtk\gtkactiongroup.c" />
+    <ClCompile Include="..\gtk\gtkactivatable.c" />
+    <ClCompile Include="..\gtk\gtkadjustment.c" />
+    <ClCompile Include="..\gtk\gtkalignment.c" />
+    <ClCompile Include="..\gtk\gtkarrow.c" />
+    <ClCompile Include="..\gtk\gtkaspectframe.c" />
+    <ClCompile Include="..\gtk\gtkassistant.c" />
+    <ClCompile Include="..\gtk\gtkbbox.c" />
+    <ClCompile Include="..\gtk\gtkbin.c" />
+    <ClCompile Include="..\gtk\gtkbindings.c" />
+    <ClCompile Include="..\gtk\gtkbox.c" />
+    <ClCompile Include="..\gtk\gtkbuildable.c" />
+    <ClCompile Include="..\gtk\gtkbuilder.c" />
+    <ClCompile Include="..\gtk\gtkbuilderparser.c" />
+    <ClCompile Include="..\gtk\gtkbutton.c" />
+    <ClCompile Include="..\gtk\gtkcalendar.c" />
+    <ClCompile Include="..\gtk\gtkcelleditable.c" />
+    <ClCompile Include="..\gtk\gtkcelllayout.c" />
+    <ClCompile Include="..\gtk\gtkcellrenderer.c" />
+    <ClCompile Include="..\gtk\gtkcellrendereraccel.c" />
+    <ClCompile Include="..\gtk\gtkcellrenderercombo.c" />
+    <ClCompile Include="..\gtk\gtkcellrendererpixbuf.c" />
+    <ClCompile Include="..\gtk\gtkcellrendererprogress.c" />
+    <ClCompile Include="..\gtk\gtkcellrendererspin.c" />
+    <ClCompile Include="..\gtk\gtkcellrendererspinner.c" />
+    <ClCompile Include="..\gtk\gtkcellrenderertext.c" />
+    <ClCompile Include="..\gtk\gtkcellrenderertoggle.c" />
+    <ClCompile Include="..\gtk\gtkcellview.c" />
+    <ClCompile Include="..\gtk\gtkcheckbutton.c" />
+    <ClCompile Include="..\gtk\gtkcheckmenuitem.c" />
+    <ClCompile Include="..\gtk\gtkclipboard.c" />
+    <ClCompile Include="..\gtk\gtkclist.c" />
+    <ClCompile Include="..\gtk\gtkcolorbutton.c" />
+    <ClCompile Include="..\gtk\gtkcolorsel.c" />
+    <ClCompile Include="..\gtk\gtkcolorseldialog.c" />
+    <ClCompile Include="..\gtk\gtkcombo.c" />
+    <ClCompile Include="..\gtk\gtkcombobox.c" />
+    <ClCompile Include="..\gtk\gtkcomboboxentry.c" />
+    <ClCompile Include="..\gtk\gtkcomboboxtext.c" />
+    <ClCompile Include="..\gtk\gtkcontainer.c" />
+    <ClCompile Include="..\gtk\gtkctree.c" />
+    <ClCompile Include="..\gtk\gtkcurve.c" />
+    <ClCompile Include="..\gtk\gtkcustompaperunixdialog.c" />
+    <ClCompile Include="..\gtk\gtkdialog.c" />
+    <ClCompile Include="..\gtk\gtkdnd.c" />
+    <ClCompile Include="..\gtk\gtkdrawingarea.c" />
+    <ClCompile Include="..\gtk\gtkeditable.c" />
+    <ClCompile Include="..\gtk\gtkentry.c" />
+    <ClCompile Include="..\gtk\gtkentrybuffer.c" />
+    <ClCompile Include="..\gtk\gtkentrycompletion.c" />
+    <ClCompile Include="..\gtk\gtkeventbox.c" />
+    <ClCompile Include="..\gtk\gtkexpander.c" />
+    <ClCompile Include="..\gtk\gtkfilechooser.c" />
+    <ClCompile Include="..\gtk\gtkfilechooserbutton.c" />
+    <ClCompile Include="..\gtk\gtkfilechooserdefault.c" />
+    <ClCompile Include="..\gtk\gtkfilechooserdialog.c" />
+    <ClCompile Include="..\gtk\gtkfilechooserembed.c" />
+    <ClCompile Include="..\gtk\gtkfilechooserentry.c" />
+    <ClCompile Include="..\gtk\gtkfilechoosersettings.c" />
+    <ClCompile Include="..\gtk\gtkfilechooserutils.c" />
+    <ClCompile Include="..\gtk\gtkfilechooserwidget.c" />
+    <ClCompile Include="..\gtk\gtkfilefilter.c" />
+    <ClCompile Include="..\gtk\gtkfilesel.c" />
+    <ClCompile Include="..\gtk\gtkfilesystem.c" />
+    <ClCompile Include="..\gtk\gtkfilesystemmodel.c" />
+    <ClCompile Include="..\gtk\gtkfixed.c" />
+    <ClCompile Include="..\gtk\gtkfontbutton.c" />
+    <ClCompile Include="..\gtk\gtkfontsel.c" />
+    <ClCompile Include="..\gtk\gtkframe.c" />
+    <ClCompile Include="..\gtk\gtkgamma.c" />
+    <ClCompile Include="..\gtk\gtkgc.c" />
+    <ClCompile Include="..\gtk\gtkhandlebox.c" />
+    <ClCompile Include="..\gtk\gtkhbbox.c" />
+    <ClCompile Include="..\gtk\gtkhbox.c" />
+    <ClCompile Include="..\gtk\gtkhpaned.c" />
+    <ClCompile Include="..\gtk\gtkhruler.c" />
+    <ClCompile Include="..\gtk\gtkhscale.c" />
+    <ClCompile Include="..\gtk\gtkhscrollbar.c" />
+    <ClCompile Include="..\gtk\gtkhseparator.c" />
+    <ClCompile Include="..\gtk\gtkhsv.c" />
+    <ClCompile Include="..\gtk\gtkiconcache.c" />
+    <ClCompile Include="..\gtk\gtkiconcachevalidator.c" />
+    <ClCompile Include="..\gtk\gtkiconfactory.c" />
+    <ClCompile Include="..\gtk\gtkicontheme.c" />
+    <ClCompile Include="..\gtk\gtkiconview.c" />
+    <ClCompile Include="..\gtk\gtkimage.c" />
+    <ClCompile Include="..\gtk\gtkimagemenuitem.c" />
+    <ClCompile Include="..\gtk\gtkimcontext.c" />
+    <ClCompile Include="..\gtk\gtkimcontextsimple.c" />
+    <ClCompile Include="..\gtk\gtkimmodule.c" />
+    <ClCompile Include="..\gtk\gtkimmulticontext.c" />
+    <ClCompile Include="..\gtk\gtkinfobar.c" />
+    <ClCompile Include="..\gtk\gtkinputdialog.c" />
+    <ClCompile Include="..\gtk\gtkinvisible.c" />
+    <ClCompile Include="..\gtk\gtkitem.c" />
+    <ClCompile Include="..\gtk\gtkitemfactory.c" />
+    <ClCompile Include="..\gtk\gtkkeyhash.c" />
+    <ClCompile Include="..\gtk\gtklabel.c" />
+    <ClCompile Include="..\gtk\gtklayout.c" />
+    <ClCompile Include="..\gtk\gtklinkbutton.c" />
+    <ClCompile Include="..\gtk\gtklist.c" />
+    <ClCompile Include="..\gtk\gtklistitem.c" />
+    <ClCompile Include="..\gtk\gtkliststore.c" />
+    <ClCompile Include="..\gtk\gtkmain.c" />
+    <ClCompile Include="..\gtk\gtkmarshal.c" />
+    <ClCompile Include="..\gtk\gtkmarshalers.c" />
+    <ClCompile Include="..\gtk\gtkmenu.c" />
+    <ClCompile Include="..\gtk\gtkmenubar.c" />
+    <ClCompile Include="..\gtk\gtkmenuitem.c" />
+    <ClCompile Include="..\gtk\gtkmenushell.c" />
+    <ClCompile Include="..\gtk\gtkmenutoolbutton.c" />
+    <ClCompile Include="..\gtk\gtkmessagedialog.c" />
+    <ClCompile Include="..\gtk\gtkmisc.c" />
+    <ClCompile Include="..\gtk\gtkmnemonichash.c" />
+    <ClCompile Include="..\gtk\gtkmodules.c" />
+    <ClCompile Include="..\gtk\gtkmountoperation-stub.c" />
+    <ClCompile Include="..\gtk\gtkmountoperation.c" />
+    <ClCompile Include="..\gtk\gtknotebook.c" />
+    <ClCompile Include="..\gtk\gtkobject.c" />
+    <ClCompile Include="..\gtk\gtkoffscreenwindow.c" />
+    <ClCompile Include="..\gtk\gtkoldeditable.c" />
+    <ClCompile Include="..\gtk\gtkoptionmenu.c" />
+    <ClCompile Include="..\gtk\gtkorientable.c" />
+    <ClCompile Include="..\gtk\gtkpagesetup.c" />
+    <ClCompile Include="..\gtk\gtkpagesetupunixdialog.c" />
+    <ClCompile Include="..\gtk\gtkpaned.c" />
+    <ClCompile Include="..\gtk\gtkpango.c" />
+    <ClCompile Include="..\gtk\gtkpapersize.c" />
+    <ClCompile Include="..\gtk\gtkpathbar.c" />
+    <ClCompile Include="..\gtk\gtkpixmap.c" />
+    <ClCompile Include="..\gtk\gtkplug-win32.c" />
+    <ClCompile Include="..\gtk\gtkplug.c" />
+    <ClCompile Include="..\gtk\gtkpreview.c" />
+    <ClCompile Include="..\gtk\gtkprint-win32.c" />
+    <ClCompile Include="..\gtk\gtkprintbackend.c" />
+    <ClCompile Include="..\gtk\gtkprintcontext.c" />
+    <ClCompile Include="..\gtk\gtkprinter.c" />
+    <ClCompile Include="..\gtk\gtkprinteroption.c" />
+    <ClCompile Include="..\gtk\gtkprinteroptionset.c" />
+    <ClCompile Include="..\gtk\gtkprinteroptionwidget.c" />
+    <ClCompile Include="..\gtk\gtkprintjob.c" />
+    <ClCompile Include="..\gtk\gtkprintoperation-win32.c" />
+    <ClCompile Include="..\gtk\gtkprintoperation.c" />
+    <ClCompile Include="..\gtk\gtkprintoperationpreview.c" />
+    <ClCompile Include="..\gtk\gtkprintsettings.c" />
+    <ClCompile Include="..\gtk\gtkprintutils.c" />
+    <ClCompile Include="..\gtk\gtkprogress.c" />
+    <ClCompile Include="..\gtk\gtkprogressbar.c" />
+    <ClCompile Include="..\gtk\gtkquery.c" />
+    <ClCompile Include="..\gtk\gtkradioaction.c" />
+    <ClCompile Include="..\gtk\gtkradiobutton.c" />
+    <ClCompile Include="..\gtk\gtkradiomenuitem.c" />
+    <ClCompile Include="..\gtk\gtkradiotoolbutton.c" />
+    <ClCompile Include="..\gtk\gtkrange.c" />
+    <ClCompile Include="..\gtk\gtkrbtree.c" />
+    <ClCompile Include="..\gtk\gtkrc.c" />
+    <ClCompile Include="..\gtk\gtkrecentaction.c" />
+    <ClCompile Include="..\gtk\gtkrecentchooser.c" />
+    <ClCompile Include="..\gtk\gtkrecentchooserdefault.c" />
+    <ClCompile Include="..\gtk\gtkrecentchooserdialog.c" />
+    <ClCompile Include="..\gtk\gtkrecentchoosermenu.c" />
+    <ClCompile Include="..\gtk\gtkrecentchooserutils.c" />
+    <ClCompile Include="..\gtk\gtkrecentchooserwidget.c" />
+    <ClCompile Include="..\gtk\gtkrecentfilter.c" />
+    <ClCompile Include="..\gtk\gtkrecentmanager.c" />
+    <ClCompile Include="..\gtk\gtkruler.c" />
+    <ClCompile Include="..\gtk\gtkscale.c" />
+    <ClCompile Include="..\gtk\gtkscalebutton.c" />
+    <ClCompile Include="..\gtk\gtkscrollbar.c" />
+    <ClCompile Include="..\gtk\gtkscrolledwindow.c" />
+    <ClCompile Include="..\gtk\gtksearchengine.c" />
+    <ClCompile Include="..\gtk\gtksearchenginebeagle.c" />
+    <ClCompile Include="..\gtk\gtksearchenginesimple.c" />
+    <ClCompile Include="..\gtk\gtksearchenginetracker.c" />
+    <ClCompile Include="..\gtk\gtkselection.c" />
+    <ClCompile Include="..\gtk\gtkseparator.c" />
+    <ClCompile Include="..\gtk\gtkseparatormenuitem.c" />
+    <ClCompile Include="..\gtk\gtkseparatortoolitem.c" />
+    <ClCompile Include="..\gtk\gtksettings.c" />
+    <ClCompile Include="..\gtk\gtkshow.c" />
+    <ClCompile Include="..\gtk\gtksignal.c" />
+    <ClCompile Include="..\gtk\gtksizegroup.c" />
+    <ClCompile Include="..\gtk\gtksocket-win32.c" />
+    <ClCompile Include="..\gtk\gtksocket.c" />
+    <ClCompile Include="..\gtk\gtkspinbutton.c" />
+    <ClCompile Include="..\gtk\gtkspinner.c" />
+    <ClCompile Include="..\gtk\gtkstatusbar.c" />
+    <ClCompile Include="..\gtk\gtkstatusicon.c" />
+    <ClCompile Include="..\gtk\gtkstock.c" />
+    <ClCompile Include="..\gtk\gtkstyle.c" />
+    <ClCompile Include="..\gtk\gtktable.c" />
+    <ClCompile Include="..\gtk\gtktearoffmenuitem.c" />
+    <ClCompile Include="..\gtk\gtktestutils.c" />
+    <ClCompile Include="..\gtk\gtktext.c" />
+    <ClCompile Include="..\gtk\gtktextbtree.c" />
+    <ClCompile Include="..\gtk\gtktextbuffer.c" />
+    <ClCompile Include="..\gtk\gtktextbufferrichtext.c" />
+    <ClCompile Include="..\gtk\gtktextbufferserialize.c" />
+    <ClCompile Include="..\gtk\gtktextchild.c" />
+    <ClCompile Include="..\gtk\gtktextdisplay.c" />
+    <ClCompile Include="..\gtk\gtktextiter.c" />
+    <ClCompile Include="..\gtk\gtktextlayout.c" />
+    <ClCompile Include="..\gtk\gtktextmark.c" />
+    <ClCompile Include="..\gtk\gtktextsegment.c" />
+    <ClCompile Include="..\gtk\gtktexttag.c" />
+    <ClCompile Include="..\gtk\gtktexttagtable.c" />
+    <ClCompile Include="..\gtk\gtktexttypes.c" />
+    <ClCompile Include="..\gtk\gtktextutil.c" />
+    <ClCompile Include="..\gtk\gtktextview.c" />
+    <ClCompile Include="..\gtk\gtkthemes.c" />
+    <ClCompile Include="..\gtk\gtktipsquery.c" />
+    <ClCompile Include="..\gtk\gtktoggleaction.c" />
+    <ClCompile Include="..\gtk\gtktogglebutton.c" />
+    <ClCompile Include="..\gtk\gtktoggletoolbutton.c" />
+    <ClCompile Include="..\gtk\gtktoolbar.c" />
+    <ClCompile Include="..\gtk\gtktoolbutton.c" />
+    <ClCompile Include="..\gtk\gtktoolitem.c" />
+    <ClCompile Include="..\gtk\gtktoolitemgroup.c" />
+    <ClCompile Include="..\gtk\gtktoolpalette.c" />
+    <ClCompile Include="..\gtk\gtktoolshell.c" />
+    <ClCompile Include="..\gtk\gtktooltip.c" />
+    <ClCompile Include="..\gtk\gtktooltips.c" />
+    <ClCompile Include="..\gtk\gtktree.c" />
+    <ClCompile Include="..\gtk\gtktreedatalist.c" />
+    <ClCompile Include="..\gtk\gtktreednd.c" />
+    <ClCompile Include="..\gtk\gtktreeitem.c" />
+    <ClCompile Include="..\gtk\gtktreemodel.c" />
+    <ClCompile Include="..\gtk\gtktreemodelfilter.c" />
+    <ClCompile Include="..\gtk\gtktreemodelsort.c" />
+    <ClCompile Include="..\gtk\gtktreeselection.c" />
+    <ClCompile Include="..\gtk\gtktreesortable.c" />
+    <ClCompile Include="..\gtk\gtktreestore.c" />
+    <ClCompile Include="..\gtk\gtktreeview.c" />
+    <ClCompile Include="..\gtk\gtktreeviewcolumn.c" />
+    <ClCompile Include="..\gtk\gtktypebuiltins.c" />
+    <ClCompile Include="..\gtk\gtktypeutils.c" />
+    <ClCompile Include="..\gtk\gtkuimanager.c" />
+    <ClCompile Include="..\gtk\gtkvbbox.c" />
+    <ClCompile Include="..\gtk\gtkvbox.c" />
+    <ClCompile Include="..\gtk\gtkviewport.c" />
+    <ClCompile Include="..\gtk\gtkvolumebutton.c" />
+    <ClCompile Include="..\gtk\gtkvpaned.c" />
+    <ClCompile Include="..\gtk\gtkvruler.c" />
+    <ClCompile Include="..\gtk\gtkvscale.c" />
+    <ClCompile Include="..\gtk\gtkvscrollbar.c" />
+    <ClCompile Include="..\gtk\gtkvseparator.c" />
+    <ClCompile Include="..\gtk\gtkwidget.c" />
+    <ClCompile Include="..\gtk\gtkwin32embed.c" />
+    <ClCompile Include="..\gtk\gtkwin32embedwidget.c" />
+    <ClCompile Include="..\gtk\gtkwindow-decorate.c" />
+    <ClCompile Include="..\gtk\gtkwindow.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\gtk\gtkalias.h" />
+    <ClInclude Include="..\gtk\gtkbuilderprivate.h" />
+    <ClInclude Include="..\gtk\gtkbuiltincache.h" />
+    <ClInclude Include="..\gtk\gtkcomboboxtext.h" />
+    <ClInclude Include="..\gtk\gtkcustompaperunixdialog.h" />
+    <ClInclude Include="..\gtk\gtkentryprivate.h" />
+    <ClInclude Include="..\gtk\gtkfilechooserdefault.h" />
+    <ClInclude Include="..\gtk\gtkfilechooserembed.h" />
+    <ClInclude Include="..\gtk\gtkfilechooserentry.h" />
+    <ClInclude Include="..\gtk\gtkfilechooserprivate.h" />
+    <ClInclude Include="..\gtk\gtkfilechoosersettings.h" />
+    <ClInclude Include="..\gtk\gtkfilechooserutils.h" />
+    <ClInclude Include="..\gtk\gtkfilesystem.h" />
+    <ClInclude Include="..\gtk\gtkfilesystemmodel.h" />
+    <ClInclude Include="..\gtk\gtkiconcache.h" />
+    <ClInclude Include="..\gtk\gtkiconcachevalidator.h" />
+    <ClInclude Include="..\gtk\gtkimcontextsimpleseqs.h" />
+    <ClInclude Include="..\gtk\gtkkeyhash.h" />
+    <ClInclude Include="..\gtk\gtkmarshalers.h" />
+    <ClInclude Include="..\gtk\gtkmnemonichash.h" />
+    <ClInclude Include="..\gtk\gtkmountoperationprivate.h" />
+    <ClInclude Include="..\gtk\gtkpagesetupunixdialog.h" />
+    <ClInclude Include="..\gtk\gtkpango.h" />
+    <ClInclude Include="..\gtk\gtkpathbar.h" />
+    <ClInclude Include="..\gtk\gtkplugprivate.h" />
+    <ClInclude Include="..\gtk\gtkprint-win32.h" />
+    <ClInclude Include="..\gtk\gtkprintbackend.h" />
+    <ClInclude Include="..\gtk\gtkprinter-private.h" />
+    <ClInclude Include="..\gtk\gtkprinter.h" />
+    <ClInclude Include="..\gtk\gtkprinteroption.h" />
+    <ClInclude Include="..\gtk\gtkprinteroptionset.h" />
+    <ClInclude Include="..\gtk\gtkprinteroptionwidget.h" />
+    <ClInclude Include="..\gtk\gtkprintjob.h" />
+    <ClInclude Include="..\gtk\gtkprintoperation-private.h" />
+    <ClInclude Include="..\gtk\gtkprintunixdialog.h" />
+    <ClInclude Include="..\gtk\gtkprintutils.h" />
+    <ClInclude Include="..\gtk\gtkprivate.h" />
+    <ClInclude Include="..\gtk\gtkquery.h" />
+    <ClInclude Include="..\gtk\gtkrbtree.h" />
+    <ClInclude Include="..\gtk\gtkrecentchooserdefault.h" />
+    <ClInclude Include="..\gtk\gtkrecentchooserprivate.h" />
+    <ClInclude Include="..\gtk\gtkrecentchooserutils.h" />
+    <ClInclude Include="..\gtk\gtksearchengine.h" />
+    <ClInclude Include="..\gtk\gtksearchenginebeagle.h" />
+    <ClInclude Include="..\gtk\gtksearchenginesimple.h" />
+    <ClInclude Include="..\gtk\gtksearchenginetracker.h" />
+    <ClInclude Include="..\gtk\gtksocketprivate.h" />
+    <ClInclude Include="..\gtk\gtkstock.h" />
+    <ClInclude Include="..\gtk\gtktextbtree.h" />
+    <ClInclude Include="..\gtk\gtktextbufferserialize.h" />
+    <ClInclude Include="..\gtk\gtktextchildprivate.h" />
+    <ClInclude Include="..\gtk\gtktextdisplay.h" />
+    <ClInclude Include="..\gtk\gtktextiterprivate.h" />
+    <ClInclude Include="..\gtk\gtktextlayout.h" />
+    <ClInclude Include="..\gtk\gtktextmarkprivate.h" />
+    <ClInclude Include="..\gtk\gtktextsegment.h" />
+    <ClInclude Include="..\gtk\gtktexttagprivate.h" />
+    <ClInclude Include="..\gtk\gtktexttypes.h" />
+    <ClInclude Include="..\gtk\gtktextutil.h" />
+    <ClInclude Include="..\gtk\gtkthemes.h" />
+    <ClInclude Include="..\gtk\gtktoggleactionprivate.h" />
+    <ClInclude Include="..\gtk\gtktoolpaletteprivate.h" />
+    <ClInclude Include="..\gtk\gtktrayicon.h" />
+    <ClInclude Include="..\gtk\gtktreedatalist.h" />
+    <ClInclude Include="..\gtk\gtktreeprivate.h" />
+    <ClInclude Include="..\gtk\gtkunixprint.h" />
+    <ClInclude Include="..\gtk\gtkwin32embed.h" />
+    <ClInclude Include="..\gtk\gtkwin32embedwidget.h" />
+    <ClInclude Include="..\gtk\gtkwindow-decorate.h" />
+    <ClInclude Include="..\gtk\gtkxembed.h" />
+    <ClInclude Include="..\gtk\xembed.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\gtk\gtk-win32.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

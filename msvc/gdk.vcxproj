@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release with Debugging Capability|x64">
+      <Configuration>Release with Debugging Capability</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CCDF059D-1DD0-4C2B-ADA8-4CF4BA0D3420}</ProjectGuid>
+    <RootNamespace>gdk</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+    <Import Project="gtk.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+    <Import Project="gtk.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+    <Import Project="gtk.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>16.0.30523.133</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>$(DllPrefix)$(ProjectName)64$(DllSuffix)D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>$(DllPrefix)$(ProjectName)64$(DllSuffix)</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>$(DllPrefix)$(ProjectName)64$(DllSuffix)RDC</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Message>Use existing Aliasdefs and Marshalers</Message>
+      <Command>cd ..
+copy /Y "config.h.win32" "gdk/config.h"
+copy /Y "config.h.win32" "gtk/config.h"
+copy /Y "gtk\gtkbuiltincache.h.in" "gtk\gtkbuiltincache.h"
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/FI$(TargetSxsFolder)\targetsxs.h %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;$(GenericIncludefolder);$(GenericIncludefolder)\cairo;$(GenericIncludefolder)\pango-$(PangoApiVersion);$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include;..;$(GtkBuildRootFolder)\gdk;$(GtkBuildRootFolder)\gdk-pixbuf;$(GtkBuildRootFolder)\gdk\win32;$(GenericIncludefolder)\gtk-$(GtkApiVersion);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GTK_HOST="win64";GTK_PREFIX="Not set (placeholder)";GTK_LIBDIR="Not set (placeholder)";GTK_PRINT_BACKENDS="file,lpr";WIN32;_WIN64;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN="Gdk";GDK_COMPILATION;INSIDE_GDK_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <StringPooling>false</StringPooling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Message>Use existing Module Definition file</Message>
+      <Command>cd ..</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>Imm32.lib;intl64D.lib;gdk_winlib64D.lib;$(DllPrefix)gdk-pixbuf64$(GdkPixbufDllSuffix)D.lib;$(DllPrefix)gobject64$(GlibDllSuffix)D.lib;$(DllPrefix)gmodule64$(GlibDllSuffix)D.lib;$(DllPrefix)glib64$(GlibDllSuffix)D.lib;$(DllPrefix)gio64$(GlibDllSuffix)D.lib;$(DllPrefix)cairo64$(CairoDllSuffix)D.lib;$(DllPrefix)pango64$(PangoDllSuffix)D.lib;$(DllPrefix)pangocairo64$(PangoDllSuffix)D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)x64\$(Configuration)\lib;$(GenericWin64LibraryFolder);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>$(ProjectDir)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\libgdk_win64_2_0/libgdk_win64_2_0.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetPath)" "$(Debug64TargetFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(TargetPath)" "$(Debug64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent>
+      <Message>Use existing Aliasdefs and Marshalers</Message>
+      <Command>cd ..
+copy /Y "config.h.win32" "gdk/config.h"
+copy /Y "config.h.win32" "gtk/config.h"
+copy /Y "gtk\gtkbuiltincache.h.in" "gtk\gtkbuiltincache.h"
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/FI$(TargetSxsFolder)\targetsxs.h %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.;$(GenericIncludefolder);$(GenericIncludefolder)\cairo;$(GenericIncludefolder)\pango-$(PangoApiVersion);$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include;..;$(GtkBuildRootFolder)\gdk;$(GtkBuildRootFolder)\gdk-pixbuf;$(GtkBuildRootFolder)\gdk\win32;$(GenericIncludefolder)\gtk-$(GtkApiVersion);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SECURE_SCL=0;GTK_HOST="win64";GTK_PREFIX="Not set (placeholder)";GTK_LIBDIR="Not set (placeholder)";GTK_PRINT_BACKENDS="file,lpr";WIN32;_WIN64;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN="Gdk";GDK_COMPILATION;INSIDE_GDK_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>CompileAsC</CompileAs>
+      <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Message>Use existing Module Definition file</Message>
+      <Command>cd ..</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>Imm32.lib;intl64.lib;gdk_winlib64.lib;$(DllPrefix)gdk-pixbuf64$(GdkPixbufDllSuffix).lib;$(DllPrefix)gobject64$(GlibDllSuffix).lib;$(DllPrefix)gmodule64$(GlibDllSuffix).lib;$(DllPrefix)glib64$(GlibDllSuffix).lib;$(DllPrefix)gio64$(GlibDllSuffix).lib;$(DllPrefix)cairo64$(CairoDllSuffix).lib;$(DllPrefix)pango64$(PangoDllSuffix).lib;$(DllPrefix)pangocairo64$(PangoDllSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)x64\$(Configuration)\lib;$(GenericWin64LibraryFolder);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(ProjectDir)\$(ProjectName).def</ModuleDefinitionFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\libgdk_win64_2_0/libgdk_win64_2_0.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetPath)" "$(Release64TargetFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(TargetPath)" "$(Release64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debugging Capability|x64'">
+    <PreBuildEvent>
+      <Message>Generate Aliasdefs and Marshalers</Message>
+      <Command>cd ..
+copy /Y "config.h.win32" "gdk/config.h"
+copy /Y "config.h.win32" "gtk/config.h"
+copy /Y "gtk\gtkbuiltincache.h.in" "gtk\gtkbuiltincache.h"
+perl gdk/makegdkalias.pl -def &lt; "gdk/gdk.symbols" &gt; "gdk/gdkaliasdef.c"
+python $(GlibBuildRootFolder)/gobject/glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --header &gt; "gdk\gdkmarshalers.h"
+python $(GlibBuildRootFolder)/gobject/glib-genmarshal --prefix=_gdk_marshal gdk/gdkmarshalers.list --body &gt; "gdk\gdkmarshalers.c"
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/FI$(TargetSxsFolder)\targetsxs.h %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;$(GenericIncludefolder);$(GenericIncludefolder)\cairo;$(GenericIncludefolder)\pango-$(PangoApiVersion);$(GenericLibraryfolder)\glib-$(GlibApiVersion)\include;..;$(GtkBuildRootFolder)\gdk;$(GtkBuildRootFolder)\gdk-pixbuf;$(GtkBuildRootFolder)\gdk\win32;$(GenericIncludefolder)\gtk-$(GtkApiVersion);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SECURE_SCL=0;GTK_HOST="win64";GTK_PREFIX="Not set (placeholder)";GTK_LIBDIR="Not set (placeholder)";GTK_PRINT_BACKENDS="file,lpr";WIN32;_WIN64;NDEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_WIN32_WINNT=0x0501;HAVE_CONFIG_H;ENABLE_NLS=1;GDK_PIXBUF_ENABLE_BACKEND;GTK_PRINT_BACKEND_ENABLE_UNSUPPORTED;G_LOG_DOMAIN="Gdk";GDK_COMPILATION;INSIDE_GDK_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <ForcedIncludeFiles>$(TargetSxsFolder)\targetsxs.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0809</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Message>Generate Module Definition file</Message>
+      <Command>echo EXPORTS &gt; $(ProjectDir)\$(ProjectName).def
+cl /EP  -DINCLUDE_VARIABLES -DG_OS_WIN32 -DGDK_WINDOWING_WIN32 -DALL_FILES -DG_GNUC_CONST="" $(GtkBuildRootFolder)\gdk\gdk.symbols &gt;&gt; $(ProjectDir)\$(ProjectName).def
+</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>imm32.lib;intl64RDC.lib;gdk_winlib64RDC.lib;$(DllPrefix)gdk-pixbuf64$(GdkPixbufDllSuffix)RDC.lib;$(DllPrefix)gobject64$(GlibDllSuffix)RDC.lib;$(DllPrefix)gmodule64$(GlibDllSuffix)RDC.lib;$(DllPrefix)glib64$(GlibDllSuffix)RDC.lib;$(DllPrefix)gio64$(GlibDllSuffix)RDC.lib;$(DllPrefix)cairo64$(CairoDllSuffix)RDC.lib;$(DllPrefix)pango64$(PangoDllSuffix)RDC.lib;$(DllPrefix)pangocairo64$(PangoDllSuffix)RDC.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)x64\$(Configuration)\lib;$(GenericWin64LibraryFolder);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(ProjectDir)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\libgdk_win64_2_0/libgdk_win64_2_0.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>mkdir "$(GenericLibraryFolder)\pkgconfig" 2&gt; NUL
+copy /Y "$(TargetPath)" "$(Release64TestSuiteFolder)\$(TargetName)$(TargetExt)"
+copy /Y "$(OutDir)$(TargetName)$(LibraryExt)" "$(GenericWin64LibraryFolder)\$(TargetName)$(LibraryExt)"
+copy /Y "..\gdk-2.0.pc" "$(GenericLibraryFolder)\pkgconfig"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\gdk\gdk.c" />
+    <ClCompile Include="..\gdk\gdkapplaunchcontext.c" />
+    <ClCompile Include="..\gdk\gdkcairo.c" />
+    <ClCompile Include="..\gdk\gdkcolor.c" />
+    <ClCompile Include="..\gdk\gdkcursor.c" />
+    <ClCompile Include="..\gdk\gdkdisplay.c" />
+    <ClCompile Include="..\gdk\gdkdisplaymanager.c" />
+    <ClCompile Include="..\gdk\gdkdnd.c" />
+    <ClCompile Include="..\gdk\gdkdraw.c" />
+    <ClCompile Include="..\gdk\gdkenumtypes.c" />
+    <ClCompile Include="..\gdk\gdkevents.c" />
+    <ClCompile Include="..\gdk\gdkfont.c" />
+    <ClCompile Include="..\gdk\gdkgc.c" />
+    <ClCompile Include="..\gdk\gdkglobals.c" />
+    <ClCompile Include="..\gdk\gdkimage.c" />
+    <ClCompile Include="..\gdk\gdkkeynames.c" />
+    <ClCompile Include="..\gdk\gdkkeys.c" />
+    <ClCompile Include="..\gdk\gdkkeyuni.c" />
+    <ClCompile Include="..\gdk\gdkmarshalers.c" />
+    <ClCompile Include="..\gdk\gdkoffscreenwindow.c" />
+    <ClCompile Include="..\gdk\gdkpango.c" />
+    <ClCompile Include="..\gdk\gdkpixbuf-drawable.c" />
+    <ClCompile Include="..\gdk\gdkpixbuf-render.c" />
+    <ClCompile Include="..\gdk\gdkpixmap.c" />
+    <ClCompile Include="..\gdk\gdkpolyreg-generic.c" />
+    <ClCompile Include="..\gdk\gdkrectangle.c" />
+    <ClCompile Include="..\gdk\gdkregion-generic.c" />
+    <ClCompile Include="..\gdk\gdkrgb.c" />
+    <ClCompile Include="..\gdk\gdkscreen.c" />
+    <ClCompile Include="..\gdk\gdkselection.c" />
+    <ClCompile Include="..\gdk\gdkvisual.c" />
+    <ClCompile Include="..\gdk\gdkwindow.c" />
+    <ClCompile Include="..\gdk\gdkwindowimpl.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\gdk\gdkmedialib.h" />
+    <ClInclude Include="..\gdk\keyname-table.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\gdk\win32\rc\gdk.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
