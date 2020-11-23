@@ -51,7 +51,14 @@ sub process_file
 	    s/\@Release32TestSuiteFolder@/$release32_testsuite_folder/g;
 	    s/\@Debug32TargetFolder@/$debug32_target_folder/g;
 	    s/\@Release32TargetFolder@/$release32_target_folder/g;
+	    s/\@GenericWin64LibraryFolder@/$generic_win64_library_folder/g;
+	    s/\@GenericWin64BinaryFolder@/$generic_win64_binary_folder/g;
+	    s/\@Debug64TestSuiteFolder@/$debug64_testsuite_folder/g;
+	    s/\@Release64TestSuiteFolder@/$release64_testsuite_folder/g;
+	    s/\@Debug64TargetFolder@/$debug64_target_folder/g;
+	    s/\@Release64TargetFolder@/$release64_target_folder/g;
 	    s/\@TargetSxSFolder@/$target_sxs_folder/g;
+	    s/\@LibraryExt@/$library_ext/g;
 	    s/\@prefix@/$prefix/g;
 	    s/\@exec_prefix@/$exec_prefix/g;
 	    s/\@includedir@/$generic_include_folder/g;
@@ -71,15 +78,22 @@ if (-1 != index($command, "-X64")) {
 	$target = "32";
 }
 
-process_file ("config.h.win32");
-process_file ("gtk/gtkversion.h");
+if (-1 != index($command, "-linux")) {
+	$library_ext = ".a";
+} else {
+	$library_ext = ".lib";
+}
+
 process_file ("demos/gtk-demo/geninclude.pl");
 process_file ("gail.pc");
 process_file ("gdk-2.0.pc");
 process_file ("gtk+-2.0.pc");
 
 if (-1 != index($command, "-buildall")) {
+	process_file ("config.h.win32");
+	process_file ("gtk/gtkversion.h");
 	process_file ("msvc/gtk.vsprops");
+	process_file ("msvc/gtk.props");
 	process_file ("gdk/win32/rc/gdk.rc");
 	process_file ("gtk/gtk-win32.rc");
 
